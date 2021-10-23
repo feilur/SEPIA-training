@@ -41,12 +41,18 @@ function displayNumberSequence(number){
 
 /**
  * @brief Highlight the arrow choosen
- * @param {string} direction direction of the arrow to highlight ("Left", "Top", "Right", "Down")
+ * @param {string} direction direction of the first arrow to highlight ("Left", "Top", "Right", "Down")
  * @param {string} state warning (yellow), success (green), danger (red)
+ * @param {string} direction2 direction of the second arrow to highlight ("Left", "Top", "Right", "Down") (optional)
+ * @param {string} state2 warning (yellow), success (green), danger (red) for the second arrow (optional)
  */
-function displayArrowState(direction, state){
+function displayArrowState(direction1, state1, direction2 = null, state2 = null){
     $(".arrowSelect").removeClass("bg-warning bg-success bg-danger");
-    $("#arrow" + direction).addClass("bg-" + state);
+    $("#arrow" + direction1).addClass("bg-" + state1);
+
+    if(direction2 && state2){
+        $("#arrow" + direction2).addClass("bg-" + state2);
+    }
 }
 
 /**
