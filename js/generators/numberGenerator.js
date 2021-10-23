@@ -1,4 +1,4 @@
-class numberManager {
+class NumberManager {
     constructor(minNumber, maxNumber) {
         this.minNumber = minNumber;
         this.maxNumber = maxNumber;
