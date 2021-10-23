@@ -48,10 +48,10 @@ function displayNumberSequence(number){
  */
 function displayArrowState(direction1, state1, direction2 = null, state2 = null){
     $(".arrowSelect").removeClass("bg-warning bg-success bg-danger");
-    $("#arrow" + direction1).addClass("bg-" + state1);
+    $("#arrow" + direction1).addClass("text-" + state1);
 
     if(direction2 && state2){
-        $("#arrow" + direction2).addClass("bg-" + state2);
+        $("#arrow" + direction2).addClass("text-" + state2);
     }
 }
 
