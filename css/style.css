@@ -11,3 +11,20 @@
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+/*
+* Notifications
+*/
+#notifications {
+    position: fixed;
+    z-index: 99999;
+    right: 10px;
+}
+
+#notifications-stack > div {
+    width: 18rem;
+}
+
+.toast-message {
+    display: flex;
+}

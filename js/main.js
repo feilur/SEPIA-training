@@ -1,25 +1,40 @@
 var compteur = 0;
 
 $(document).ready(function() {
-    console.log( "ready!" );
-
+    //Button start
     $("#btnStart").on('click', function(){
         $("#btnStart").prop('disabled', true);
         $("#btnStart").addClass('disabled');
 
-        $("#btnStop").prop('disabled', false);
-        $("#btnStop").removeClass('disabled');
+        $("#btnPlayAgain").prop('disabled', false);
+        $("#btnPlayAgain").removeClass('disabled');
 
         //Ajouter fonction au clic sur Start
     });
 
-    $("#btnStop").on('click', function(){
-        $("#btnStop").prop('disabled', true);
-        $("#btnStop").addClass('disabled');
+    //Button play again
+    $("#btnPlayAgain").on('click', function(){
+        $("#btnPlayAgain").prop('disabled', true);
+        $("#btnPlayAgain").addClass('disabled');
 
         $("#btnStart").prop('disabled', false);
         $("#btnStart").removeClass('disabled');
-        //Ajouter fonction au clic sur stop
+        //Ajouter fonction au clic sur playAgain
+    });
+
+
+    $("#btnValidateFinish").on('click', function(){
+        if($("#inNbShapes").val() == "" || $("#inNumberSequence").val() == ""){
+            $("#inNbShapes, #inNumberSequence").addClass('is-invalid');
+
+            fAfficheError("Please answer both fields");
+            return;
+        }
+
+        $("#inNbShapes, #inNumberSequence").removeClass('is-invalid');
+        $("#modalFinish").modal('hide');
+        
+        openResults();
     });
 });
 
