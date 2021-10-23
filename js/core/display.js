@@ -18,6 +18,8 @@ function displayOperation(keyOperator, num1, num2){
     $("#divOperator")[0].innerHTML = operatorObject[keyOperator];
     $("#firstNumber")[0].innerHTML = num1;
     $("#secondNumber")[0].innerHTML = num2;
+
+    $("#resultOperation").focus();
 }
 
 /**
