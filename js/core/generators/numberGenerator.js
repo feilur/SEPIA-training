@@ -5,6 +5,7 @@ class NumberGenerator {
     minNumber;  ///< Minimun number to generate
     maxNumber;  ///< Maximum number to generate
     result;     ///< Result of the generation: used to check the user's answer
+    lastResult; ///< Last result to avoid providing the same one
 
     /**
      * @brief Constructor
@@ -16,6 +17,7 @@ class NumberGenerator {
         this.minNumber = minNumber;
         this.maxNumber = maxNumber;
         this.result = -1;
+        this.lastResult = -1;
     }
 
     /**
@@ -24,7 +26,12 @@ class NumberGenerator {
      * @returns Result of the random generation between minNumber and maxNumber
      */
     generateNumber() {
-        this.result = Math.floor((Math.random() * this.maxNumber - this.minNumber + 1) + this.minNumber);
+        this.lastResult = this.result;
+
+        while (this.result == this.lastResult && this.maxNumber != this.minNumber) {
+            this.result = Math.floor((Math.random() * this.maxNumber - this.minNumber + 1) + this.minNumber);
+        }
+
         return this.result;
     }
 }
