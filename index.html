@@ -71,16 +71,44 @@
                         </div>
                         <div class="row mb-5">
                             <div class="col d-flex flex-nowrap justify-content-center">
-                                <i id="arrowLeft" class="fa fa-4x fa-angle-left border border-2 m-0 p-2 arrowSelect"></i>
+                                <i id="arrowLeft"
+                                    class="fa fa-4x fa-angle-left border border-2 m-0 p-2 arrowSelect"></i>
                                 <i id="arrowDown"
                                     class="fa fa-4x fa-angle-down border border-2 me-1 ms-1 p-2 arrowSelect"></i>
-                                <i id="arrowRight" class="fa fa-4x fa-angle-right border border-2 m-0 p-2 arrowSelect"></i>
+                                <i id="arrowRight"
+                                    class="fa fa-4x fa-angle-right border border-2 m-0 p-2 arrowSelect"></i>
                             </div>
                         </div>
                         <div class="card-footer text-muted text-center">
                             Copyright © 2021
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal end game-->
+    <div class="modal fade" id="modalEndGame" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Result</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="label-nbShapes">Number of squares</span>
+                        <input type="text" class="form-control" id="inNbShapes" aria-describedby="label-nbShapes">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="label-numbersSeq">Sequence numbers</span>
+                        <input type="text" class="form-control" id="inNumberSequence" aria-describedby="label-numbersSeq">
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary">Validate</button>
                 </div>
             </div>
         </div>
