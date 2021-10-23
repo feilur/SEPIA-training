@@ -1,5 +1,5 @@
 /**
- * @brief Class to give a random shape from enumShape
+ * @brief Class to give a random shape from shapeObject
  */
  class ShapeGenerator {
     shapeObject; ///< Object containing names of shape to be generated
