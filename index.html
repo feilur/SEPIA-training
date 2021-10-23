@@ -1,31 +1,32 @@
 <!doctype html>
-
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="icons/fighter-jet.png">
-        <title>SEPIA Training</title>
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/fontawesome.min.all.css">
-        <script src="js/jquery-3.6.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/core/data/data.js"></script>
-        <script src="js/core/display.js"></script>
-    </head>
-    <body>
-        <div class="container">
-            <h1 class="card-title text-center mt-2">SEPIA TRAINING</h1>
-            <hr/>
-            <div class="row justify-content-center">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                          <div class="row justify-content-center">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="icons/fighter-jet.png">
+    <title>SEPIA Training</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.all.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/core/data/data.js"></script>
+    <script src="js/core/display.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="card-title text-center mt-2">SEPIA TRAINING</h1>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row justify-content-center">
                             <div class="col-2 border text-center">
                                 <i id="shapeHide" class="fa fa-4x fa-eye-slash text-muted m-1"></i>
                                 <div id="divShape">
@@ -33,49 +34,57 @@
                             </div>
                             <div class="col-8 border d-flex align-items-center justify-content-center">
                                 <div>
-                                    <button id="btnInstructions" type="button" class="btn btn-lg btn-secondary me-1">Instructions</button>
-                                    <button id="btnStart" type="button" class="btn btn-lg btn-danger btnActionBar disabled" disabled="disabled">Stop</button>
-                                    <button id="btnStop" type="button" class="btn btn-lg btn-primary btnActionBar">Start</button>
-                                </div>                                    
+                                    <button id="btnInstructions" type="button"
+                                        class="btn btn-lg btn-secondary me-1">Instructions</button>
+                                    <button id="btnStart" type="button"
+                                        class="btn btn-lg btn-danger btnActionBar disabled"
+                                        disabled="disabled">Stop</button>
+                                    <button id="btnStop" type="button"
+                                        class="btn btn-lg btn-primary btnActionBar">Start</button>
+                                </div>
                             </div>
                             <div class="col-2 border text-center">
                                 <i id="numberSequenceHide" class="fa fa-4x fa-eye-slash text-muted m-1"></i>
                                 <p id="numberSequence" class="fw-bolder m-0 fs-xl"></p>
                             </div>
-                          </div>
-                          <div class="row justify-content-center mt-5 text-center">
-                              <div class="col-4"></div>
-                              <div class="col-lg-4 col-9">
+                        </div>
+                        <div class="row justify-content-center mt-5 text-center">
+                            <div class="col-4"></div>
+                            <div class="col-lg-4 col-9">
                                 <div class="input-group">
                                     <div class="input-group-text flex-grow-1 p-0 justify-content-center">
                                         <i id="operationHide" class="fa fa-3x fa-eye-slash text-muted m-1"></i>
                                         <p id="firstNumber" class="mb-0 me-2 fs-1 fw-bolder text-danger"></p>
                                         <div id="divOperator" class="text-center"></div>
-                                        <p id="secondNumber" class="mb-0 ms-2 fs-1 fw-bolder text-danger"></p>                                    
+                                        <p id="secondNumber" class="mb-0 ms-2 fs-1 fw-bolder text-danger"></p>
                                     </div>
-    
-                                    <input id="resultOperation" class="form-control fs-4" type="number" value="" placeholder="Result...">
-                                </div> 
-                              </div>                                                         
-                          </div>
-                          <div class="row mt-5 justify-content-center">
-                              <div class="col d-flex flex-nowrap justify-content-center">
+
+                                    <input id="resultOperation" class="form-control fs-4" type="number" value=""
+                                        placeholder="Result...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5 justify-content-center">
+                            <div class="col d-flex flex-nowrap justify-content-center">
                                 <i id="arrowUp" class="fa fa-4x fa-angle-up border border-2 mb-1 p-2 arrowSelect"></i>
-                              </div>                                               
+                            </div>
                         </div>
                         <div class="row mb-5">
                             <div class="col d-flex flex-nowrap justify-content-center">
-                                <i id="arrowLeft" class="fa fa-4x fa-angle-left border border-2 p-2 arrowSelect"></i>
-                                <i id="arrowDown" class="fa fa-4x fa-angle-down border border-2 me-1 ms-1 p-2 arrowSelect"></i>   
-                                <i id="arrowRight" class="fa fa-4x fa-angle-right border border-2 p-2 arrowSelect"></i> 
-                            </div>                                                
+                                <i id="arrowLeft" class="fa fa-4x fa-angle-left border border-2 m-0 p-2 arrowSelect"></i>
+                                <i id="arrowDown"
+                                    class="fa fa-4x fa-angle-down border border-2 me-1 ms-1 p-2 arrowSelect"></i>
+                                <i id="arrowRight" class="fa fa-4x fa-angle-right border border-2 m-0 p-2 arrowSelect"></i>
+                            </div>
                         </div>
                         <div class="card-footer text-muted text-center">
                             Copyright © 2021
-                          </div>
-                      </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>      
-    </body>
+        </div>
+    </div>
+</body>
+
 </html>
