@@ -3,9 +3,8 @@ var compteur = 0;
 $(document).ready(function() {
     console.log( "ready!" );
 
-    fTest();
+    //fTest();
 
-    console.log("test");
 });
 
 

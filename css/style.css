@@ -1,4 +1,8 @@
 .btnActionBar{
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+}
+
+.fs-xl{
+    font-size: 3rem;
 }
