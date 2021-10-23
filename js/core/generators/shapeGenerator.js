@@ -11,8 +11,9 @@
      * @param Object containing names of shape to be generated
      */
     constructor(shapeObject) {
-        this.shapeObject = shapeObject;
-        result = -1;
+        this.shapeObject = shapeObject; ///< Object containing shapes (in data.js)
+        result = -1;    ///< Result of the generation: used to check the user's answer
+        lastResult;     ///< Last result to avoid providing the same one
     }
 
     /**
@@ -21,12 +22,15 @@
      * @returns String of the shape to be generated (used as key name to get the display command)
      */
     generateShape() {
+        this.lastResult = this.result;
         const maxIndex = this.shapeObject.length();
-        randomIndex = Math.floor(Math.random() * this.maxNumber + 1);
 
         const shapeArray = Object.keys(this.shapeObject);
 
-        this.result = shapeArray[randomIndex];
+        while (this.result == this.lastResult && shapeArray.length() > 1) {
+            randomIndex = Math.floor(Math.random() * this.maxNumber + 1);
+            this.result = shapeArray[randomIndex];
+        }
 
         return this.result;
     }
