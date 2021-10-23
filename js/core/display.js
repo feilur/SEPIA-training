@@ -47,7 +47,7 @@ function displayNumberSequence(number){
  * @param {string} state2 warning (yellow), success (green), danger (red) for the second arrow (optional)
  */
 function displayArrowState(direction1, state1, direction2 = null, state2 = null){
-    $(".arrowSelect").removeClass("bg-warning bg-success bg-danger");
+    $(".arrowSelect").removeClass("text-warning text-success text-danger");
     $("#arrow" + direction1).addClass("text-" + state1);
 
     if(direction2 && state2){
@@ -86,9 +86,25 @@ function resetPage(){
     $(".arrowSelect").removeClass("bg-warning");
 
     //reset start / stop buttons
-    $("#btnStop").prop('disabled', true);
-    $("#btnStop").addClass('disabled');
+    $("#btnPlayAgain").prop('disabled', true);
+    $("#btnPlayAgain").addClass('disabled');
 
     $("#btnStart").prop('disabled', false);
     $("#btnStart").removeClass('disabled');
+
+    $("#inNbShapes, #inNumberSequence").removeClass('is-invalid');
+}
+
+/**
+ * @brief open finish modal
+ * @param {string} shapeCounted name of shape counted
+ */
+function openFinish(shapeCounted){
+    resetPage();
+    $("#label-nbShapes").text("Number of " + shapeCounted);
+    $("#modalFinish").modal('show');
+}
+
+function openResults(){
+    $("#modalResult").modal('show');
 }

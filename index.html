@@ -16,9 +16,15 @@
     <script src="js/main.js"></script>
     <script src="js/core/data/data.js"></script>
     <script src="js/core/display.js"></script>
+    <script src="js/core/utils.js"></script>
 </head>
 
 <body>
+    <!-- Notifications (success or error) -->
+    <div id="notifications" class="pt-2" aria-live="polite" aria-atomic="true">
+        <div id="notifications-stack"></div>
+    </div>
+
     <div class="container">
         <h1 class="card-title text-center mt-2">SEPIA TRAINING</h1>
         <hr />
@@ -37,9 +43,9 @@
                                     <button id="btnInstructions" type="button"
                                         class="btn btn-lg btn-secondary me-1">Instructions</button>
                                     <button id="btnStart" type="button"
-                                        class="btn btn-lg btn-danger btnActionBar disabled"
-                                        disabled="disabled">Stop</button>
-                                    <button id="btnStop" type="button"
+                                        class="btn btn-lg btn-success btnActionBar disabled" disabled="disabled">Play
+                                        again</button>
+                                    <button id="btnPlayAgain" type="button"
                                         class="btn btn-lg btn-primary btnActionBar">Start</button>
                                 </div>
                             </div>
@@ -71,12 +77,10 @@
                         </div>
                         <div class="row mb-5">
                             <div class="col d-flex flex-nowrap justify-content-center">
-                                <i id="arrowLeft"
-                                    class="fas fa-4x fa-arrow-alt-circle-left m-0 p-2 arrowSelect"></i>
+                                <i id="arrowLeft" class="fas fa-4x fa-arrow-alt-circle-left m-0 p-2 arrowSelect"></i>
                                 <i id="arrowDown"
                                     class="fas fa-4x fa-arrow-alt-circle-down me-1 ms-1 p-2 arrowSelect"></i>
-                                <i id="arrowRight"
-                                    class="fas fa-4x fa-arrow-alt-circle-right m-0 p-2 arrowSelect"></i>
+                                <i id="arrowRight" class="fas fa-4x fa-arrow-alt-circle-right m-0 p-2 arrowSelect"></i>
                             </div>
                         </div>
                         <div class="card-footer text-muted text-center">
@@ -94,21 +98,40 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Result</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Finish</h5>
                 </div>
                 <div class="modal-body">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="label-nbShapes">Number of squares</span>
-                        <input type="text" class="form-control" id="inNbShapes" aria-describedby="label-nbShapes">
+                        <input type="number" class="form-control" id="inNbShapes" aria-describedby="label-nbShapes">
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="label-numbersSeq">Sequence numbers</span>
-                        <input type="text" class="form-control" id="inNumberSequence" aria-describedby="label-numbersSeq">
+                        <input type="number" class="form-control" id="inNumberSequence" aria-describedby="label-numbersSeq">
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-primary">Validate</button>
+                    <button id="btnValidateFinish" type="button" class="btn btn-primary">Validate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal result -->
+    <div class="modal fade" id="modalResult" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="labelModalResult" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="labelModalResult">Result</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
