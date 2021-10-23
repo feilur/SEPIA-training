@@ -45,7 +45,7 @@ function displayNumberSequence(number){
  * @param {string} state warning (yellow), success (green), danger (red)
  */
 function displayArrowState(direction, state){
-    $(".arrowSelect").removeClass("bg-warning, bg-success, bg-danger");
+    $(".arrowSelect").removeClass("bg-warning bg-success bg-danger");
     $("#arrow" + direction).addClass("bg-" + state);
 }
 
