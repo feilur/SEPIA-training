@@ -4,8 +4,8 @@
 class NumberGenerator {
     minNumber;  ///< Minimun number to generate
     maxNumber;  ///< Maximum number to generate
-    result;     ///< Result of the generation: used to check the user's answer
-    lastResult; ///< Last result to avoid providing the same one
+    generatedNumber;     ///< generatedNumber
+    lastgeneratedNumber; ///< Last generatedNumber to avoid providing the same one
 
     /**
      * @brief Constructor
@@ -16,22 +16,22 @@ class NumberGenerator {
     constructor(minNumber, maxNumber) {
         this.minNumber = minNumber;
         this.maxNumber = maxNumber;
-        this.result = -1;
-        this.lastResult = -1;
+        this.generatedNumber = -1;
+        this.lastgeneratedNumber = -1;
     }
 
     /**
-     * @brief Generates a random number and stores it in result
+     * @brief Generates a random number and stores it in generatedNumber
      * 
-     * @returns Result of the random generation between minNumber and maxNumber
+     * @returns generatedNumber between minNumber and maxNumber
      */
     generateNumber() {
-        this.lastResult = this.result;
+        this.lastgeneratedNumber = this.generatedNumber;
 
-        while (this.result == this.lastResult && this.maxNumber != this.minNumber) {
-            this.result = Math.floor((Math.random() * this.maxNumber - this.minNumber + 1) + this.minNumber);
+        while (this.generatedNumber == this.lastgeneratedNumber && this.maxNumber != this.minNumber) {
+            this.generatedNumber = Math.floor((Math.random() * this.maxNumber - this.minNumber + 1) + this.minNumber);
         }
 
-        return this.result;
+        return this.generatedNumber;
     }
 }
