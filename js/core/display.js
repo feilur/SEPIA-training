@@ -21,6 +21,16 @@ function displayOperation(keyOperator, num1, num2){
 }
 
 /**
+ * @brief Hide operation with question mark icon
+ */
+ function hideOperation(){
+    $("#operationHide").show();
+    $("#divOperator")[0].innerHTML = "";
+    $("#firstNumber")[0].innerHTML = "";
+    $("#secondNumber")[0].innerHTML = "";
+}
+
+/**
  * @brief Display the next number of the sequence (top-right corner)
  * @param {number} number number to display
  */
@@ -31,14 +41,24 @@ function displayNumberSequence(number){
 
 /**
  * @brief Highlight the arrow choosen
- * @param {number} direction direction of the arrow to highlight ("Left", "Top", "Right", "Down")
+ * @param {string} direction direction of the arrow to highlight ("Left", "Top", "Right", "Down")
+ * @param {string} state warning (yellow), success (green), danger (red)
  */
-function displayArrowWarn(direction){
-    $("#arrow" + direction).addClass("bg-warning");
+function displayArrowState(direction, state){
+    $(".arrowSelect").removeClass("bg-warning, bg-success, bg-danger");
+    $("#arrow" + direction).addClass("bg-" + state);
 }
 
 /**
- * @brief Reset all "games" form with question mark instead of elements
+ * @brief Enable / disable answer operation input 
+ * @param {string} isEditable true / false
+ */
+function toggleAnswerOperation(isEditable){
+    $("#resultOperation").prop('readonly', !isEditable);
+}
+
+/**
+ * @brief Reset all inputs of form with question mark icon instead of elements
  */
 function resetPage(){
     //Shape replaced with question mark
@@ -59,4 +79,10 @@ function resetPage(){
     //reset arrows background
     $(".arrowSelect").removeClass("bg-warning");
 
+    //reset start / stop buttons
+    $("#btnStop").prop('disabled', true);
+    $("#btnStop").addClass('disabled');
+
+    $("#btnStart").prop('disabled', false);
+    $("#btnStart").removeClass('disabled');
 }

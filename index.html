@@ -27,31 +27,31 @@
                         <div class="card-body">
                           <div class="row justify-content-center">
                             <div class="col-2 border text-center">
-                                <i id="shapeHide" class="fa fa-5x fa-question"></i>
+                                <i id="shapeHide" class="fa fa-4x fa-question m-1"></i>
                                 <div id="divShape">
                                 </div>
                             </div>
                             <div class="col-8 border d-flex align-items-center justify-content-center">
                                 <div>
-                                    <button type="button" class="btn btn-lg btn-secondary me-1">Instructions</button>
-                                    <button type="button" class="btn btn-lg btn-danger btnActionBar">Stop</button>
-                                    <button type="button" class="btn btn-lg btn-primary btnActionBar">Start</button>
+                                    <button id="btnInstructions" type="button" class="btn btn-lg btn-secondary me-1">Instructions</button>
+                                    <button id="btnStart" type="button" class="btn btn-lg btn-danger btnActionBar disabled" disabled="disabled">Stop</button>
+                                    <button id="btnStop" type="button" class="btn btn-lg btn-primary btnActionBar">Start</button>
                                 </div>                                    
                             </div>
                             <div class="col-2 border text-center">
-                                <i id="numberSequenceHide" class="fa fa-5x fa-question"></i>
+                                <i id="numberSequenceHide" class="fa fa-4x fa-question m-1"></i>
                                 <p id="numberSequence" class="fw-bolder m-0 fs-xl"></p>
                             </div>
                           </div>
                           <div class="row justify-content-center mt-5 text-center">
-                              <div class="col-3"></div>
+                              <div class="col-4"></div>
                               <div class="col-lg-4 col-9">
                                 <div class="input-group">
                                     <div class="input-group-text flex-grow-1 p-0 justify-content-center">
-                                        <i id="operationHide" class="fa fa-2x fa-question"></i>
-                                        <p id="firstNumber" class="mb-0 me-2 fs-2 fw-bolder"></p>
+                                        <i id="operationHide" class="fa fa-3x fa-question m-1"></i>
+                                        <p id="firstNumber" class="mb-0 me-2 fs-1 fw-bolder text-danger"></p>
                                         <div id="divOperator" class="text-center"></div>
-                                        <p id="secondNumber" class="mb-0 ms-2 fs-2 fw-bolder"></p>                                    
+                                        <p id="secondNumber" class="mb-0 ms-2 fs-1 fw-bolder text-danger"></p>                                    
                                     </div>
     
                                     <input id="resultOperation" class="form-control fs-4" type="number" value="" placeholder="Result...">
@@ -60,14 +60,14 @@
                           </div>
                           <div class="row mt-5 justify-content-center">
                               <div class="col d-flex flex-nowrap justify-content-center">
-                                <i id="arrowUp" class="fa fa-5x fa-arrow-up border mb-1 p-1 arrowSelect"></i>
+                                <i id="arrowUp" class="fa fa-4x fa-arrow-up border mb-1 p-1 arrowSelect"></i>
                               </div>                                               
                         </div>
                         <div class="row mb-5">
                             <div class="col d-flex flex-nowrap justify-content-center">
-                                <i id="arrowLeft" class="fa fa-5x fa-arrow-left border p-1 arrowSelect"></i>
-                                <i id="arrowDown" class="fa fa-5x fa-arrow-down border me-1 ms-1 p-1 arrowSelect"></i>   
-                                <i id="arrowRight" class="fa fa-5x fa-arrow-right border p-1 arrowSelect"></i> 
+                                <i id="arrowLeft" class="fa fa-4x fa-arrow-left border p-1 arrowSelect"></i>
+                                <i id="arrowDown" class="fa fa-4x fa-arrow-down border me-1 ms-1 p-1 arrowSelect"></i>   
+                                <i id="arrowRight" class="fa fa-4x fa-arrow-right border p-1 arrowSelect"></i> 
                             </div>                                                
                         </div>
                         <div class="card-footer text-muted text-center">
