@@ -8,6 +8,14 @@ function displayShape(keyShape){
 }
 
 /**
+ * @brief Hide shape in divShape bloc
+ */
+ function hideShape(){
+    $("#shapeHide").show();
+    $("#divShape")[0].innerHTML = "";
+}
+
+/**
  * @brief Display operation in divOperator bloc
  * @param {string} keyShape string operator qualifier
  * @param {number} num1 first number in operation
