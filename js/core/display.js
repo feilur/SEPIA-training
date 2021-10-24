@@ -135,13 +135,15 @@ function openFinish(shapeCounted){
     $("#label-nbShapes").text("Number of " + shapeCounted);
     $("#inOperationResultFilled").val(resultFilled);
 
-    
-
     $("#modalFinish").modal('show');
 }
 
-function openResults(nbShape, sequenceNumbers){
+function openResults(nbShapeAnswer, sequenceNumbersAnswer, operationAnswer, arrowPercentSuccess){
 
+    $("#nbShapesResult").val($("#inNbShapes").val());
+    $("#inNumberSequenceResult").val($("#inNumberSequence").val());
+    $("#inCalculationResult").val($("#inOperationResultFilled").val());
+    $("#inArrowResult").val();
 
     $("#modalResult").modal('show');
 }
