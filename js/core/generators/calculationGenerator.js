@@ -28,7 +28,7 @@
         this.minValueMember2 = -1;
         this.maxValueMember2 = -1;
 
-        result = -1;
+        this.result = -1;
     }
 
     /**
@@ -98,7 +98,7 @@
 
         this.result = this.generatedCalculation.getResult();
 
-        return this.generateCalculation;
+        return this.generatedCalculation;
     }
 
     /**
@@ -107,9 +107,10 @@
      * @returns operatorObject key
      */
     generateOperator() {
-        const maxIndex = this.operatorObject.length();
         const operatorArray = Object.keys(this.operatorObject);
-        randomIndex = Math.floor(Math.random() * maxIndex + 1);
+
+        const maxIndex = operatorArray.length;
+        const randomIndex = Math.floor(Math.random() * maxIndex);
 
         return operatorArray[randomIndex];
     }
@@ -122,11 +123,13 @@
     operatorKey;   ///< operator key
     member1;    ///< First number of the operation
     member2;    ///< Second number of the operation
+    result;     ///< Result of the operation
 
     constructor(operatorKey, member1, member2) {
         this.operatorKey = operatorKey;
         this.member1 = member1;
         this.member2 = member2;
+        this.result = -1;
     }
 
     getResult() {
@@ -141,16 +144,17 @@
                 break;
 
             case "divide":
-                result = this.member1 * this.member2;
+                result = this.member1 / this.member2;
                 break;
 
             case "multiplicate":
-                result = this.member1 / this.member2;
+                result = this.member1 * this.member2;
                 break;
 
             default:
                 console.log("Not a valid operator to generate a calculation");
         }
+        this.result = result;
         return result;
     }
 }

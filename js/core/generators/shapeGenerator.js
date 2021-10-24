@@ -13,8 +13,8 @@
      */
     constructor(shapeObject) {
         this.shapeObject = shapeObject;
-        generatedShape = -1;
-        lastgeneratedShape = -1;     
+        this.generatedShape = -1;
+        this.lastgeneratedShape = -1;     
     }
 
     /**
@@ -24,12 +24,12 @@
      */
     generateShape() {
         this.lastgeneratedShape = this.generatedShape;
-        const maxIndex = this.shapeObject.length();
 
         const shapeArray = Object.keys(this.shapeObject);
+        const maxIndex = shapeArray.length;
 
-        while (this.generatedShape == this.lastgeneratedShape && shapeArray.length() > 1) {
-            randomIndex = Math.floor(Math.random() * maxIndex + 1);
+        while (this.generatedShape == this.lastgeneratedShape && shapeArray.length > 1) {
+            const randomIndex = Math.floor(Math.random() * maxIndex);
             this.generatedShape = shapeArray[randomIndex];
         }
 
