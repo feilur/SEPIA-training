@@ -51,15 +51,3 @@ $(document).ready(function() {
         openResults();
     });
 });
-
-
-function fTest(){
-    setTimeout(function(){
-        console.log(compteur);
-        if(compteur < 4){
-            fTest();
-        }
-
-        compteur++;
-    }, 2000);
-}
