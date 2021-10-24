@@ -141,7 +141,7 @@ function openFinish(shapeCounted){
 
     resetPage();
 
-    $("#label-nbShapes").text("Number of " + shapeCounted);
+    $("#label-nbShapes").text("Number of " + shapeCounted + "s");
     $("#inOperationResultFilled").val(resultFilled);
 
     $("#modalFinish").modal('show');
@@ -160,6 +160,7 @@ function openResults(nbShapeAnswer, sequenceNumbersAnswer, operationAnswer, user
     let userSequenceNumbers = $("#inNumberSequence").val();
     let userCalculationResult = $("#inOperationResultFilled").val();
 
+    $("#labelNbShapesResult").text($("#label-nbShapes").text());
     $("#nbShapesResult").val(userNbShapes);
     $("#inNumberSequenceResult").val(userSequenceNumbers);
     $("#inCalculationResult").val(userCalculationResult);
