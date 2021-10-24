@@ -1,4 +1,14 @@
 /**
+ * @brief Display the start test modal & sohw the shape to count
+ * @param {string} shapeToCount string shape qualifier
+ */
+function displayModalStartTest(shapeToCount){
+    $("#divShapeToCount")[0].innerHTML = shapeObject[shapeToCount];
+
+    $("#modalSelectionShape").modal('show');
+}
+
+/**
  * @brief Display shape in divShape bloc
  * @param {string} keyShape string shape qualifier
  */
@@ -103,10 +113,7 @@ function resetPage(){
     //reset arrows background
     $(".arrowSelect").removeClass("bg-warning");
 
-    //reset start / stop buttons
-    $("#btnStop").prop('disabled', true);
-    $("#btnStop").addClass('disabled');
-
+    //reset start buttons
     $("#btnStart").prop('disabled', false);
     $("#btnStart").removeClass('disabled');
 
@@ -125,6 +132,6 @@ function openFinish(shapeCounted){
 
 function openResults(nbShape, sequenceNumbers){
 
-    
+
     $("#modalResult").modal('show');
 }

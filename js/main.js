@@ -9,25 +9,18 @@ $(document).ready(function() {
 
     //Button start
     $("#btnStart").on('click', function(){
+        displayModalStartTest("triangle");
+    });
+
+    //Button start test (after shape discover)
+    $("#btnStartTest").on('click', function(){
         $("#btnStart").prop('disabled', true);
         $("#btnStart").addClass('disabled');
 
-        $("#btnStop").prop('disabled', false);
-        $("#btnStop").removeClass('disabled');
+        $("#modalSelectionShape").modal('hide');
 
         //Ajouter fonction au clic sur Start
         scheduler.start();
-    });
-
-    //Button stop
-    $("#btnStop").on('click', function(){        
-        $("#btnStop").prop('disabled', true);
-        $("#btnStop").addClass('disabled');
-
-        $("#btnStart").prop('disabled', false);
-        $("#btnStart").removeClass('disabled');
-        //Ajouter fonction au clic sur playAgain
-        scheduler.stop();
     });
 
     //Button show settings
