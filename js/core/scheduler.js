@@ -14,52 +14,106 @@ class Scheduler {
         this.calculationGenerator = new CalculationGenerator(operatorObject);
     }
     start() {
-        this.startPeriodicNumberGenerator(1000, 5, this);
-        this.startPeriodicShapeGenerator(1000, 5, this);
+        stopScheduler = false;
+        this.manageNumberGenerator();
+        this.manageShapeGenerator();
+
+        this.startPeriodicNumberGenerator(1000, 20-1, this);
+        this.startPeriodicShapeGenerator(1000, 20-1, this);
+        this.startPeriodicCalculationGenerator(15000, 1, this);
     }
     stop() {
+        stopScheduler = true;
         resetPage();
+
+        clearAllTimeouts();
     }
 
     startPeriodicNumberGenerator(period, numberOfExecutions, scheduler) {
-        setTimeout(function(){
+        if ( !stopScheduler ) {
+            setTimeout(function(){
 
-            numberOfExecutions--;
-
-            if (numberOfExecutions > -1) {
-                const newNumber = scheduler.numberGenerator.generateNumber();
-                console.log(newNumber);
-
-                displayNumberSequence(newNumber);
-
-                scheduler.startPeriodicNumberGenerator(period, numberOfExecutions, scheduler);
-            }
-            else {
-                hideNumberSequence();
-            }
-        }, period);
+                numberOfExecutions--;
+    
+                if (numberOfExecutions > -1) {
+                    scheduler.manageNumberGenerator();
+    
+                    scheduler.startPeriodicNumberGenerator(period, numberOfExecutions, scheduler);
+                }
+                else {
+                    hideNumberSequence();
+                }
+            }, period);
+        }
     }
 
     startPeriodicShapeGenerator(period, numberOfExecutions, scheduler) {
-        setTimeout(function(){
+        if ( !stopScheduler ) {
+            setTimeout(function(){
 
-            numberOfExecutions--;
+                numberOfExecutions--;
 
-            if (numberOfExecutions > -1) {
-                const newShape = scheduler.shapeGenerator.generateShape();
-                console.log(newShape);
+                if (numberOfExecutions > -1) {
+                    scheduler.manageShapeGenerator();
 
-                displayShape(newShape);
-
-                scheduler.startPeriodicShapeGenerator(period, numberOfExecutions, scheduler);
-            }
-            else {
-                hideShape();
-            }
-        }, period);
+                    scheduler.startPeriodicShapeGenerator(period, numberOfExecutions, scheduler);
+                }
+                else {
+                    hideShape();
+                }
+            }, period);
+        }
     }
 
-    startTimerCalculationGenerator(maxApparitionTime) {
+    startPeriodicCalculationGenerator(period, numberOfExecutions, scheduler) {
+        if ( !stopScheduler ) {
+            setTimeout(function(){
 
+                numberOfExecutions--;
+
+                if (numberOfExecutions > -1) {
+                    scheduler.manageCalculationGenerator();
+
+                    scheduler.startPeriodicCalculationGenerator(period, numberOfExecutions, scheduler);
+                }
+                else {
+                    hideOperation();
+                }
+            }, period);
+        }
+    }
+
+    manageNumberGenerator() {
+        if ( !stopScheduler ) {
+            const newNumber = this.numberGenerator.generateNumber();
+            console.log(newNumber);
+
+            displayNumberSequence(newNumber);
+        }
+    }
+
+    manageShapeGenerator() {
+        if ( !stopScheduler ) {
+            const newShape = this.shapeGenerator.generateShape();
+            console.log(newShape);
+
+            displayShape(newShape);
+        }
+    }
+
+    manageCalculationGenerator() {
+        if ( !stopScheduler ) {
+            const newCalculation = this.calculationGenerator.generateCalculation();
+            console.log(newCalculation);
+
+            displayOperation(newCalculation.operatorKey, newCalculation.member1, newCalculation.member2);
+        }
+    }
+
+    clearAllTimeouts() {
+        var highestTimeoutId = setTimeout(";");
+        for (var i = 0 ; i < highestTimeoutId ; i++) {
+            clearTimeout(i);
+        }
     }
 }

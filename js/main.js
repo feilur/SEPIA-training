@@ -1,5 +1,7 @@
 var compteur = 0;
 
+var stopScheduler = false;
+
 $(document).ready(function() {
 
     let scheduler = new Scheduler();
@@ -25,6 +27,7 @@ $(document).ready(function() {
         $("#btnStart").prop('disabled', false);
         $("#btnStart").removeClass('disabled');
         //Ajouter fonction au clic sur playAgain
+        scheduler.stop();
     });
 
     //Button show settings

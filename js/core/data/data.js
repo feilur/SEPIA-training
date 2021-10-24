@@ -52,12 +52,12 @@ const jsonSettings = {
         },
         divideOperation:{
             member1:{
-                min: 5,
-                max: 20
+                min: 3,
+                max: 10
             },
             member2:{
                 min: 10,
-                max: 9999
+                max: 1000
             }
         },
         multiplicateOperation:{
