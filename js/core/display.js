@@ -117,6 +117,9 @@ function resetPage(){
     $("#btnStart").prop('disabled', false);
     $("#btnStart").removeClass('disabled');
 
+    //reset modal finish
+    $("#inOperationResultFilled, #inNbShapes, #inNumberSequence").val("");
+
     $("#inNbShapes, #inNumberSequence").removeClass('is-invalid');
 }
 
@@ -125,8 +128,15 @@ function resetPage(){
  * @param {string} shapeCounted name of shape counted
  */
 function openFinish(shapeCounted){
+    let resultFilled = $("#resultOperation").val();
+
     resetPage();
+
     $("#label-nbShapes").text("Number of " + shapeCounted);
+    $("#inOperationResultFilled").val(resultFilled);
+
+    
+
     $("#modalFinish").modal('show');
 }
 
