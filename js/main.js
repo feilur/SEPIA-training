@@ -42,7 +42,7 @@ $(document).ready(function() {
         if($("#inNbShapes").val() == "" || $("#inNumberSequence").val() == ""){
             $("#inNbShapes, #inNumberSequence").addClass('is-invalid');
 
-            fAfficheError("Please answer both fields");
+            fShowError("Please answer both fields");
             return;
         }
 

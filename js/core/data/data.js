@@ -16,3 +16,65 @@ const operatorObject = {
     divide: '<i class="fas fa-2x fa-divide"></i>',
     multiplicate: '<i class="fas fa-2x fa-times"></i>'
 };
+
+const jsonSettings = {
+    gameDuration: 60,
+    shapesSettings: {
+        member1:{
+            min: 10,
+            max: 9999
+        },
+        member2:{
+            min: 10,
+            max: 9999
+        }
+    },
+    calculationSettings: {
+        plusOperation:{
+            member1:{
+                min: 10,
+                max: 9999
+            },
+            member2:{
+                min: 10,
+                max: 9999
+            }
+        },
+        minusOperation:{
+            member1:{
+                min: 10,
+                max: 9999
+            },
+            member2:{
+                min: 10,
+                max: 9999
+            }
+        },
+        divideOperation:{
+            member1:{
+                min: 5,
+                max: 20
+            },
+            member2:{
+                min: 10,
+                max: 9999
+            }
+        },
+        multiplicateOperation:{
+            member1:{
+                min: 10,
+                max: 9999
+            },
+            member2:{
+                min: 10,
+                max: 9999
+            }
+        }
+    },
+    numbersSequenceSettings:{
+
+    },
+    arrowsSettings:{
+
+    }
+}
