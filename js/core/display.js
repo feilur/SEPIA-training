@@ -123,6 +123,8 @@ function openFinish(shapeCounted){
     $("#modalFinish").modal('show');
 }
 
-function openResults(){
+function openResults(nbShape, sequenceNumbers){
+
+    
     $("#modalResult").modal('show');
 }

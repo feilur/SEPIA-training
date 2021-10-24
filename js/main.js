@@ -7,8 +7,6 @@ $(document).ready(function() {
 
     //Button start
     $("#btnStart").on('click', function(){
-        console.log("start");
-
         $("#btnStart").prop('disabled', true);
         $("#btnStart").addClass('disabled');
 
@@ -20,9 +18,7 @@ $(document).ready(function() {
     });
 
     //Button stop
-    $("#btnStop").on('click', function(){
-        console.log("stop");
-        
+    $("#btnStop").on('click', function(){        
         $("#btnStop").prop('disabled', true);
         $("#btnStop").addClass('disabled');
 
@@ -30,7 +26,6 @@ $(document).ready(function() {
         $("#btnStart").removeClass('disabled');
         //Ajouter fonction au clic sur playAgain
     });
-
 
     //Button show settings
     $("#btnSettings").on('click', function(){
@@ -48,6 +43,6 @@ $(document).ready(function() {
         $("#inNbShapes, #inNumberSequence").removeClass('is-invalid');
         $("#modalFinish").modal('hide');
         
-        openResults();
+        openResults($("#inNbShapes").val(), $("#inNumberSequence").val());
     });
 });
