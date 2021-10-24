@@ -1,6 +1,12 @@
 var compteur = 0;
 
 $(document).ready(function() {
+
+    let scheduler = new Scheduler();
+
+    scheduler.start();
+
+
     //Button start
     $("#btnStart").on('click', function(){
         console.log("start");
