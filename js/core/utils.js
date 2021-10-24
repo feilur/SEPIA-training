@@ -24,3 +24,25 @@ function fShowSuccess(message) {
         fShowNotification('success', message);
     }
 }
+
+function fSetInvalidInput(idInput, errorMessage){
+    $('#' + idInput).addClass("is-invalid");
+
+    if ($('#' + idInput).parent().hasClass('input-group')) {
+        $('#' + idInput).parent().addClass("is-invalid");
+    }
+
+    $('#' + idInput + "Feedback").addClass("invalid-feedback");
+    $('#' + idInput + "Feedback").html(errorMessage);
+}
+
+function fSetValidInput(idInput, message){
+    $('#' + idInput).addClass("is-valid");
+
+    if ($('#' + idInput).parent().hasClass('input-group')) {
+        $('#' + idInput).parent().addClass("is-valid");
+    }
+
+    $('#' + idInput + "Feedback").addClass("valid-feedback");
+    $('#' + idInput + "Feedback").html(message);
+}

@@ -139,11 +139,40 @@ function openFinish(shapeCounted){
 }
 
 function openResults(nbShapeAnswer, sequenceNumbersAnswer, operationAnswer, arrowPercentSuccess){
+    //Loading fields
+    let userNbShapes = $("#inNbShapes").val();
+    let userSequenceNumbers = $("#inNumberSequence").val();
+    let userCalculationResult = $("#inOperationResultFilled").val();
 
-    $("#nbShapesResult").val($("#inNbShapes").val());
-    $("#inNumberSequenceResult").val($("#inNumberSequence").val());
-    $("#inCalculationResult").val($("#inOperationResultFilled").val());
-    $("#inArrowResult").val();
+    $("#nbShapesResult").val(userNbShapes);
+    $("#inNumberSequenceResult").val(userSequenceNumbers);
+    $("#inCalculationResult").val(userCalculationResult);
+    $("#inArrowResult").val(arrowPercentSuccess + "%");
+
+    //Verifying answers
+    if(userNbShapes == nbShapeAnswer){
+        fSetValidInput("nbShapesResult", "Valid answer");
+    }else{
+        fSetInvalidInput("nbShapesResult", "Correct answer was: " + nbShapeAnswer);
+    }
+
+    if(userSequenceNumbers == sequenceNumbersAnswer){
+        fSetValidInput("inNumberSequenceResult", "Valid answer");
+    }else{
+        fSetInvalidInput("inNumberSequenceResult", "Correct answer was: " + sequenceNumbersAnswer);
+    }
+
+    if(userCalculationResult == operationAnswer){
+        fSetValidInput("inCalculationResult", "Valid answer");
+    }else{
+        fSetInvalidInput("inCalculationResult", "Correct answer was: " + operationAnswer);
+    }
+
+    if(arrowPercentSuccess >= 90){
+        fSetValidInput("inArrowResult", "");
+    }else{
+        fSetInvalidInput("inArrowResult", "score is too low");
+    }
 
     $("#modalResult").modal('show');
 }

@@ -39,6 +39,6 @@ $(document).ready(function() {
         $("#inNbShapes, #inNumberSequence").removeClass('is-invalid');
         $("#modalFinish").modal('hide');
         
-        openResults($("#inNbShapes").val(), $("#inNumberSequence").val());
+        openResults(4, 1234, 450, 90);
     });
 });
