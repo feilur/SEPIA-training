@@ -18,7 +18,7 @@ const operatorObject = {
 };
 
 const jsonSettings = {
-    gameDuration: 50,
+    gameDuration: 50000,
     shapesSettings: {
         member1:{
             min: 10,
@@ -28,7 +28,7 @@ const jsonSettings = {
             min: 10,
             max: 9999
         },
-        period: 5,
+        period: 5000,
         numberOfApparition: 10
     },
     calculationSettings: {
@@ -72,14 +72,16 @@ const jsonSettings = {
                 max: 9999
             }
         },
-        minPeriod: 10,
-        maxPeriod: 35,
-        numberOfApparition: 1
+        minPeriod: 10000,
+        maxPeriod: 35000,
+        numberOfApparition: 1,
+        apparitionTime: 5000,
+        inputTime: 10000
     },
     numbersSequenceSettings:{
         minNumber: 1,
         maxNumber: 9,
-        period: 10,
+        period: 10000,
         numberOfApparition: 5
     },
     arrowsSettings:{

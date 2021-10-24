@@ -25,9 +25,13 @@ class Scheduler {
         const maxCalculationPeriod = jsonSettings.calculationSettings.maxPeriod;
 
         const calculationPeriod = Math.floor((Math.random() * maxCalculationPeriod - minCalculationPeriod + 1) + minCalculationPeriod);
-        console.log("Random period for calculation display: $(calculationPeriod)");
+        console.log("Random period for calculation display:" + calculationPeriod);
 
         this.startPeriodicCalculationGenerator(calculationPeriod, jsonSettings.calculationSettings.numberOfApparition, this);
+
+        setTimeout(function(){
+            openFinish("triangle");
+        }, jsonSettings.gameDuration);
     }
     stop() {
         stopScheduler = true;
@@ -42,7 +46,7 @@ class Scheduler {
 
                 numberOfExecutions--;
     
-                if (numberOfExecutions > -1) {
+                if (numberOfExecutions >= 0 ) {
                     scheduler.manageNumberGenerator();
     
                     scheduler.startPeriodicNumberGenerator(period, numberOfExecutions, scheduler);
@@ -60,7 +64,7 @@ class Scheduler {
 
                 numberOfExecutions--;
 
-                if (numberOfExecutions > -1) {
+                if (numberOfExecutions >= 0) {
                     scheduler.manageShapeGenerator();
 
                     scheduler.startPeriodicShapeGenerator(period, numberOfExecutions, scheduler);
@@ -78,12 +82,20 @@ class Scheduler {
 
                 numberOfExecutions--;
 
-                if (numberOfExecutions > -1) {
+                if (numberOfExecutions >= 0) {
                     scheduler.manageCalculationGenerator();
 
                     scheduler.startPeriodicCalculationGenerator(period, numberOfExecutions, scheduler);
+
+                    setTimeout(function() {
+                        hideOperation();
+                    }, jsonSettings.calculationSettings.apparitionTime)
+
+                    setTimeout(function() {
+                        toggleAnswerOperation(false);
+                    }, jsonSettings.calculationSettings.inputTime)
                 }
-                else {
+                else if (jsonSettings.calculationSettings.numberOfApparition > 1) {
                     hideOperation();
                 }
             }, period);
