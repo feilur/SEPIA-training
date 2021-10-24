@@ -42,6 +42,14 @@ function displayNumberSequence(number){
 }
 
 /**
+ * @brief Hide the next number of the sequence (top-right corner)
+ */
+ function hideNumberSequence(){
+    $("#numberSequenceHide").show();
+    $("#numberSequence")[0].innerHTML = "";
+}
+
+/**
  * @brief Highlight the arrow choosen
  * @param {string} direction direction of the first arrow to highlight ("Left", "Top", "Right", "Down")
  * @param {string} state warning (yellow), success (green), danger (red)
