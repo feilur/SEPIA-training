@@ -14,8 +14,12 @@ class Scheduler {
         this.calculationGenerator = new CalculationGenerator(operatorObject);
     }
     start() {
-        this.startPeriodicNumberGenerator(1000, 5, this);
-        this.startPeriodicShapeGenerator(1000, 5, this);
+        this.manageNumberGenerator();
+        this.manageShapeGenerator();
+
+        this.startPeriodicNumberGenerator(1000, 5-1, this);
+        this.startPeriodicShapeGenerator(1000, 5-1, this);
+        this.startPeriodicCalculationGenerator(15000, 1, this);
     }
     stop() {
         resetPage();
@@ -27,10 +31,7 @@ class Scheduler {
             numberOfExecutions--;
 
             if (numberOfExecutions > -1) {
-                const newNumber = scheduler.numberGenerator.generateNumber();
-                console.log(newNumber);
-
-                displayNumberSequence(newNumber);
+                scheduler.manageNumberGenerator();
 
                 scheduler.startPeriodicNumberGenerator(period, numberOfExecutions, scheduler);
             }
@@ -46,10 +47,7 @@ class Scheduler {
             numberOfExecutions--;
 
             if (numberOfExecutions > -1) {
-                const newShape = scheduler.shapeGenerator.generateShape();
-                console.log(newShape);
-
-                displayShape(newShape);
+                scheduler.manageShapeGenerator();
 
                 scheduler.startPeriodicShapeGenerator(period, numberOfExecutions, scheduler);
             }
@@ -59,7 +57,40 @@ class Scheduler {
         }, period);
     }
 
-    startTimerCalculationGenerator(maxApparitionTime) {
+    startPeriodicCalculationGenerator(period, numberOfExecutions, scheduler) {
+        setTimeout(function(){
 
+            numberOfExecutions--;
+
+            if (numberOfExecutions > -1) {
+                scheduler.manageCalculationGenerator();
+
+                scheduler.startPeriodicCalculationGenerator(period, numberOfExecutions, scheduler);
+            }
+            else {
+                hideOperation();
+            }
+        }, period);
+    }
+
+    manageNumberGenerator() {
+        const newNumber = this.numberGenerator.generateNumber();
+        console.log(newNumber);
+
+        displayNumberSequence(newNumber);
+    }
+
+    manageShapeGenerator() {
+        const newShape = this.shapeGenerator.generateShape();
+        console.log(newShape);
+
+        displayShape(newShape);
+    }
+
+    manageCalculationGenerator() {
+        const newCalculation = this.calculationGenerator.generateCalculation();
+        console.log(newCalculation);
+
+        displayOperation(newCalculation.operatorKey, newCalculation.member1, newCalculation.member2);
     }
 }
