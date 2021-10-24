@@ -15,34 +15,12 @@ function fShowNotification(type, message) {
     $(toast).toast('show');
 }
 
-function fAfficheError(message) {
+function fShowError(message) {
     fShowNotification('danger', message);
 }
 
-function fAfficheSuccess(message) {
+function fShowSuccess(message) {
     if ($.trim(message) != "") {
         fShowNotification('success', message);
     }
-}
-
-function fGetSettings(){
-    $.ajax({
-        url: 'js/core/data/settings.json',
-        type: 'GET',
-        crossDomain: true,
-        accept: 'application/json',
-        dataType: 'jsonp',
-        contentType: "application/json",
-        success: function() { alert("Success"); },
-        error: function() { alert('Failed!'); },
-    });
-    /*$.ajax({
-        crossDomain: true,        
-        dataType: "jsonp",
-        url: "js/core/data/settings.json",
-        success: function(jsondata){
-            //let data = JSON.parse(data.d);
-            console.log(jsondata);
-        }
-     })*/
 }
