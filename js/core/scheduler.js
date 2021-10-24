@@ -22,30 +22,40 @@ class Scheduler {
 
     static startPeriodicNumberGenerator(period, numberOfExecutions, numberGenerator) {
         setTimeout(function(){
-            const newNumber = numberGenerator.generateNumber();
 
-            console.log(newNumber);
-
-            displayNumberSequence(newNumber);
-            numberOfExecutions--;
             if (numberOfExecutions > 0) {
+                const newNumber = numberGenerator.generateNumber();
+                console.log(newNumber);
+
+                displayNumberSequence(newNumber);
+
                 Scheduler.startPeriodicNumberGenerator(period, numberOfExecutions, numberGenerator);
             }
+            else {
+                hideNumberSequence();
+            }
+
+            numberOfExecutions--;
         }, period);
     }
 
-    managePeriodicNumberGenerator(){
+    startPeriodicShapeGenerator(period, numberOfExecutions, shapeGenerator) {
         setTimeout(function(){
-            const newNumber = numberGenerator.generateNumber();
 
-            console.log(newNumber);
+            if (numberOfExecutions > 0) {
+                const newShape = shapeGenerator.generateShape();
+                console.log(newShape);
 
-            displayNumberSequence(newNumber);
+                displayShape(newShape);
+
+                Scheduler.startPeriodicNumberGenerator(period, numberOfExecutions, shapeGenerator);
+            }
+            else {
+                hideShape();
+            }
+
+            numberOfExecutions--;
         }, period);
-    }
-
-    startPeriodicShapeGenerator(period) {
-
     }
 
     startTimerCalculationGenerator(maxApparitionTime) {
