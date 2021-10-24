@@ -14,9 +14,14 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/application/modalSettings.js"></script>
     <script src="js/core/data/data.js"></script>
     <script src="js/core/display.js"></script>
     <script src="js/core/utils.js"></script>
+    <script src="js/core/generators/arrowsGenerator.js"></script>
+    <script src="js/core/generators/calculationGenerator.js"></script>
+    <script src="js/core/generators/numberGenerator.js"></script>
+    <script src="js/core/generators/shapeGenerator.js"></script>
 </head>
 
 <body>
@@ -40,12 +45,11 @@
                             </div>
                             <div class="col-8 border d-flex align-items-center justify-content-center">
                                 <div>
-                                    <button id="btnInstructions" type="button"
-                                        class="btn btn-lg btn-secondary me-1">Instructions</button>
+                                    <button id="btnSettings" type="button"
+                                        class="btn btn-lg btn-secondary me-1">Settings</button>
+                                    <button id="btnStop" type="button"
+                                        class="btn btn-lg btn-danger btnActionBar disabled" disabled="disabled">Stop</button>
                                     <button id="btnStart" type="button"
-                                        class="btn btn-lg btn-success btnActionBar disabled" disabled="disabled">Play
-                                        again</button>
-                                    <button id="btnPlayAgain" type="button"
                                         class="btn btn-lg btn-primary btnActionBar">Start</button>
                                 </div>
                             </div>
@@ -90,6 +94,25 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Modal settings -->
+    <div class="modal fade" id="modalSettings" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="labelModalSettings" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="labelModalSettings">Setup settings</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
     </div>
 
     <!-- Modal finish -->
