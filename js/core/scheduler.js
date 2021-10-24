@@ -7,7 +7,7 @@ class Scheduler {
     calculationGenerator;
 
     constructor() {
-        this.numberGenerator = new NumberGenerator(1, 10);
+        this.numberGenerator = new NumberGenerator(jsonSettings.numbersSequenceSettings.minNumber, jsonSettings.numbersSequenceSettings.maxNumber);
         console.log(this.numberGenerator);
 
         this.shapeGenerator = new ShapeGenerator(shapeObject);
@@ -18,9 +18,16 @@ class Scheduler {
         this.manageNumberGenerator();
         this.manageShapeGenerator();
 
-        this.startPeriodicNumberGenerator(1000, 20-1, this);
-        this.startPeriodicShapeGenerator(1000, 20-1, this);
-        this.startPeriodicCalculationGenerator(15000, 1, this);
+        this.startPeriodicNumberGenerator(jsonSettings.numbersSequenceSettings.period, jsonSettings.numbersSequenceSettings.numberOfApparition-1, this);
+        this.startPeriodicShapeGenerator(jsonSettings.shapesSettings.period, jsonSettings.shapesSettings.numberOfApparition-1, this);
+
+        const minCalculationPeriod = jsonSettings.calculationSettings.minPeriod;
+        const maxCalculationPeriod = jsonSettings.calculationSettings.maxPeriod;
+
+        const calculationPeriod = Math.floor((Math.random() * maxCalculationPeriod - minCalculationPeriod + 1) + minCalculationPeriod);
+        console.log("Random period for calculation display: $(calculationPeriod)");
+
+        this.startPeriodicCalculationGenerator(calculationPeriod, jsonSettings.calculationSettings.numberOfApparition, this);
     }
     stop() {
         stopScheduler = true;
