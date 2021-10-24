@@ -9,13 +9,12 @@ $(document).ready(function() {
 
     //Button start
     $("#btnStart").on('click', function(){
-        displayModalStartTest("triangle");
+        displayModalStartTraining("triangle"); //TODO: change shape dynamically
     });
 
-    //Button start test (after shape discover)
-    $("#btnStartTest").on('click', function(){
-        $("#btnStart").prop('disabled', true);
-        $("#btnStart").addClass('disabled');
+    //Button start training (after shape discover)
+    $("#btnStartTraining").on('click', function(){
+        disableStartButton();
 
         $("#modalSelectionShape").modal('hide');
 
@@ -39,6 +38,6 @@ $(document).ready(function() {
         $("#inNbShapes, #inNumberSequence").removeClass('is-invalid');
         $("#modalFinish").modal('hide');
         
-        openResults(4, 1234, 450, 90);
+        openResults(4, 1234, 450, 90); //TODO: Change value with correct answers
     });
 });

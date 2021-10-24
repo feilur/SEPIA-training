@@ -1,8 +1,8 @@
 /**
- * @brief Display the start test modal & sohw the shape to count
+ * @brief Display the start training modal & sohw the shape to count
  * @param {string} shapeToCount string shape qualifier
  */
-function displayModalStartTest(shapeToCount){
+function displayModalStartTraining(shapeToCount){
     $("#divShapeToCount")[0].innerHTML = shapeObject[shapeToCount];
 
     $("#modalSelectionShape").modal('show');
@@ -91,6 +91,16 @@ function toggleAnswerOperation(isEditable){
     $("#resultOperation").prop('readonly', !isEditable);
 }
 
+function enableStartButton(){
+    $("#btnStart").prop('disabled', false);
+    $("#btnStart").removeClass('disabled');
+}
+
+function disableStartButton(){
+    $("#btnStart").prop('disabled', true);
+    $("#btnStart").addClass('disabled');
+}
+
 /**
  * @brief Reset all inputs of form with question mark icon instead of elements
  */
@@ -114,8 +124,7 @@ function resetPage(){
     $(".arrowSelect").removeClass("bg-warning");
 
     //reset start buttons
-    $("#btnStart").prop('disabled', false);
-    $("#btnStart").removeClass('disabled');
+    enableStartButton();
 
     //reset modal finish
     $("#inOperationResultFilled, #inNbShapes, #inNumberSequence").val("");
@@ -138,7 +147,14 @@ function openFinish(shapeCounted){
     $("#modalFinish").modal('show');
 }
 
-function openResults(nbShapeAnswer, sequenceNumbersAnswer, operationAnswer, arrowPercentSuccess){
+/**
+ * @brief open result modal
+ * @param {number} nbShapeAnswer shape count result answer
+ * @param {number} sequenceNumbersAnswer sequence number answer
+ * @param {number} operationAnswer calculation result
+ * @param {number} userArrowPercentSuccess user arrow key success percentage
+ */
+function openResults(nbShapeAnswer, sequenceNumbersAnswer, operationAnswer, userArrowPercentSuccess){
     //Loading fields
     let userNbShapes = $("#inNbShapes").val();
     let userSequenceNumbers = $("#inNumberSequence").val();
@@ -147,7 +163,7 @@ function openResults(nbShapeAnswer, sequenceNumbersAnswer, operationAnswer, arro
     $("#nbShapesResult").val(userNbShapes);
     $("#inNumberSequenceResult").val(userSequenceNumbers);
     $("#inCalculationResult").val(userCalculationResult);
-    $("#inArrowResult").val(arrowPercentSuccess + "%");
+    $("#inArrowResult").val(userArrowPercentSuccess + "%");
 
     //Verifying answers
     if(userNbShapes == nbShapeAnswer){
@@ -168,11 +184,14 @@ function openResults(nbShapeAnswer, sequenceNumbersAnswer, operationAnswer, arro
         fSetInvalidInput("inCalculationResult", "Correct answer was: " + operationAnswer);
     }
 
-    if(arrowPercentSuccess >= 90){
+    if(userArrowPercentSuccess >= jsonSettings.arrowsSettings.minPercentToSuccess){
         fSetValidInput("inArrowResult", "");
     }else{
         fSetInvalidInput("inArrowResult", "score is too low");
     }
+
+    //Enable start button
+    enableStartButton();
 
     $("#modalResult").modal('show');
 }

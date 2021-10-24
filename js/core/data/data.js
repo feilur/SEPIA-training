@@ -85,6 +85,6 @@ const jsonSettings = {
         numberOfApparition: 5
     },
     arrowsSettings:{
-
+        minPercentToSuccess: 90
     }
 }
