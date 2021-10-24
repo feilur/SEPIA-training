@@ -14,25 +14,25 @@ class Scheduler {
         this.calculationGenerator = new CalculationGenerator(operatorObject);
     }
     start() {
-        Scheduler.startPeriodicNumberGenerator(1000, 5, this.numberGenerator);
-        Scheduler.startPeriodicShapeGenerator(1000, 5, this.shapeGenerator);
+        this.startPeriodicNumberGenerator(1000, 5, this);
+        this.startPeriodicShapeGenerator(1000, 5, this);
     }
     stop() {
         resetPage();
     }
 
-    static startPeriodicNumberGenerator(period, numberOfExecutions, numberGenerator) {
+    startPeriodicNumberGenerator(period, numberOfExecutions, scheduler) {
         setTimeout(function(){
 
             numberOfExecutions--;
 
             if (numberOfExecutions > -1) {
-                const newNumber = numberGenerator.generateNumber();
+                const newNumber = scheduler.numberGenerator.generateNumber();
                 console.log(newNumber);
 
                 displayNumberSequence(newNumber);
 
-                Scheduler.startPeriodicNumberGenerator(period, numberOfExecutions, numberGenerator);
+                scheduler.startPeriodicNumberGenerator(period, numberOfExecutions, scheduler);
             }
             else {
                 hideNumberSequence();
@@ -40,18 +40,18 @@ class Scheduler {
         }, period);
     }
 
-    static startPeriodicShapeGenerator(period, numberOfExecutions, shapeGenerator) {
+    startPeriodicShapeGenerator(period, numberOfExecutions, scheduler) {
         setTimeout(function(){
 
             numberOfExecutions--;
 
             if (numberOfExecutions > -1) {
-                const newShape = shapeGenerator.generateShape();
+                const newShape = scheduler.shapeGenerator.generateShape();
                 console.log(newShape);
 
                 displayShape(newShape);
 
-                Scheduler.startPeriodicShapeGenerator(period, numberOfExecutions, shapeGenerator);
+                scheduler.startPeriodicShapeGenerator(period, numberOfExecutions, scheduler);
             }
             else {
                 hideShape();
