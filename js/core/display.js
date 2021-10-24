@@ -88,8 +88,8 @@ function resetPage(){
     $(".arrowSelect").removeClass("bg-warning");
 
     //reset start / stop buttons
-    $("#btnPlayAgain").prop('disabled', true);
-    $("#btnPlayAgain").addClass('disabled');
+    $("#btnStop").prop('disabled', true);
+    $("#btnStop").addClass('disabled');
 
     $("#btnStart").prop('disabled', false);
     $("#btnStart").removeClass('disabled');

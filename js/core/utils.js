@@ -24,3 +24,25 @@ function fAfficheSuccess(message) {
         fShowNotification('success', message);
     }
 }
+
+function fGetSettings(){
+    $.ajax({
+        url: 'js/core/data/settings.json',
+        type: 'GET',
+        crossDomain: true,
+        accept: 'application/json',
+        dataType: 'jsonp',
+        contentType: "application/json",
+        success: function() { alert("Success"); },
+        error: function() { alert('Failed!'); },
+    });
+    /*$.ajax({
+        crossDomain: true,        
+        dataType: "jsonp",
+        url: "js/core/data/settings.json",
+        success: function(jsondata){
+            //let data = JSON.parse(data.d);
+            console.log(jsondata);
+        }
+     })*/
+}

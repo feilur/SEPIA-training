@@ -3,25 +3,34 @@ var compteur = 0;
 $(document).ready(function() {
     //Button start
     $("#btnStart").on('click', function(){
+        console.log("start");
+
         $("#btnStart").prop('disabled', true);
         $("#btnStart").addClass('disabled');
 
-        $("#btnPlayAgain").prop('disabled', false);
-        $("#btnPlayAgain").removeClass('disabled');
+        $("#btnStop").prop('disabled', false);
+        $("#btnStop").removeClass('disabled');
 
         //Ajouter fonction au clic sur Start
     });
 
-    //Button play again
-    $("#btnPlayAgain").on('click', function(){
-        $("#btnPlayAgain").prop('disabled', true);
-        $("#btnPlayAgain").addClass('disabled');
+    //Button stop
+    $("#btnStop").on('click', function(){
+        console.log("stop");
+        
+        $("#btnStop").prop('disabled', true);
+        $("#btnStop").addClass('disabled');
 
         $("#btnStart").prop('disabled', false);
         $("#btnStart").removeClass('disabled');
         //Ajouter fonction au clic sur playAgain
     });
 
+
+    //Button show settings
+    $("#btnSettings").on('click', function(){
+        openModalSettings();
+    });
 
     $("#btnValidateFinish").on('click', function(){
         if($("#inNbShapes").val() == "" || $("#inNumberSequence").val() == ""){
