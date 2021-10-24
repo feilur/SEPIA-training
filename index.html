@@ -48,8 +48,6 @@
                                 <div>
                                     <button id="btnSettings" type="button"
                                         class="btn btn-lg btn-secondary me-1">Settings</button>
-                                    <button id="btnStop" type="button"
-                                        class="btn btn-lg btn-danger btnActionBar disabled" disabled="disabled">Stop</button>
                                     <button id="btnStart" type="button"
                                         class="btn btn-lg btn-primary btnActionBar">Start</button>
                                 </div>
@@ -107,13 +105,32 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
+    </div>
+
+    <!-- Modal selection shape -->
+    <div class="modal fade" id="modalSelectionShape" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Shape to count</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center" id="divShapeToCount">
+                    
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button id="btnStartTest" type="button" class="btn btn-primary">Start test</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Modal finish -->
@@ -163,24 +180,24 @@
                               </div>
 
                               <div class="input-group mb-3">
-                                <span class="input-group-text col-form-label col-8" id="labelNbShapesResult">Number of triangles</span>
-                                <input type="text" class="form-control is-valid" id="nbShapesResult" aria-describedby="labelNbShapesResult" readonly>
+                                <span class="input-group-text col-form-label col-8" id="labelSequenceNumberResult">Number sequence</span>
+                                <input type="text" class="form-control is-valid" id="inNumberSequenceResult" aria-describedby="labelSequenceNumberResult" readonly>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                               </div>
 
                               <div class="input-group mb-3">
-                                <span class="input-group-text col-form-label col-8" id="labelNbShapesResult">Number of triangles</span>
-                                <input type="text" class="form-control is-valid" id="nbShapesResult" aria-describedby="labelNbShapesResult" readonly>
+                                <span class="input-group-text col-form-label col-8" id="labelCalculationResult">Calculation result</span>
+                                <input type="text" class="form-control is-valid" id="inCalculationResult" aria-describedby="labelCalculationResult" readonly>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                               </div>
 
                               <div class="input-group mb-3">
-                                <span class="input-group-text col-form-label col-8" id="labelNbShapesResult">Number of triangles</span>
-                                <input type="text" class="form-control is-valid" id="nbShapesResult" aria-describedby="labelNbShapesResult" readonly>
+                                <span class="input-group-text col-form-label col-8" id="labelArrowResult">Arrow success (%)</span>
+                                <input type="text" class="form-control is-valid" id="inArrowResult" aria-describedby="labelArrowSuccessResult" readonly>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
