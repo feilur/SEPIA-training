@@ -4,8 +4,6 @@ $(document).ready(function() {
 
     let scheduler = new Scheduler();
 
-    scheduler.start();
-
 
     //Button start
     $("#btnStart").on('click', function(){
@@ -18,6 +16,7 @@ $(document).ready(function() {
         $("#btnStop").removeClass('disabled');
 
         //Ajouter fonction au clic sur Start
+        scheduler.start();
     });
 
     //Button stop
