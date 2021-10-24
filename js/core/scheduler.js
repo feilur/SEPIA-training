@@ -15,6 +15,7 @@ class Scheduler {
     }
     start() {
         Scheduler.startPeriodicNumberGenerator(1000, 5, this.numberGenerator);
+        Scheduler.startPeriodicShapeGenerator(1000, 5, this.shapeGenerator);
     }
     stop() {
         resetPage();
@@ -23,7 +24,9 @@ class Scheduler {
     static startPeriodicNumberGenerator(period, numberOfExecutions, numberGenerator) {
         setTimeout(function(){
 
-            if (numberOfExecutions > 0) {
+            numberOfExecutions--;
+
+            if (numberOfExecutions > -1) {
                 const newNumber = numberGenerator.generateNumber();
                 console.log(newNumber);
 
@@ -34,27 +37,25 @@ class Scheduler {
             else {
                 hideNumberSequence();
             }
-
-            numberOfExecutions--;
         }, period);
     }
 
-    startPeriodicShapeGenerator(period, numberOfExecutions, shapeGenerator) {
+    static startPeriodicShapeGenerator(period, numberOfExecutions, shapeGenerator) {
         setTimeout(function(){
 
-            if (numberOfExecutions > 0) {
+            numberOfExecutions--;
+
+            if (numberOfExecutions > -1) {
                 const newShape = shapeGenerator.generateShape();
                 console.log(newShape);
 
                 displayShape(newShape);
 
-                Scheduler.startPeriodicNumberGenerator(period, numberOfExecutions, shapeGenerator);
+                Scheduler.startPeriodicShapeGenerator(period, numberOfExecutions, shapeGenerator);
             }
             else {
                 hideShape();
             }
-
-            numberOfExecutions--;
         }, period);
     }
 
