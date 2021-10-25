@@ -7,6 +7,8 @@ class NumberGenerator {
     generatedNumber;     ///< generatedNumber
     lastgeneratedNumber; ///< Last generatedNumber to avoid providing the same one
 
+    result; ///< String containing all numbers displayed (in the right order)
+
     /**
      * @brief Constructor
      * 
@@ -18,6 +20,8 @@ class NumberGenerator {
         this.maxNumber = maxNumber;
         this.generatedNumber = -1;
         this.lastgeneratedNumber = -1;
+
+        this.result = "";
     }
 
     /**
@@ -31,6 +35,10 @@ class NumberGenerator {
         while (this.generatedNumber == this.lastgeneratedNumber && this.maxNumber != this.minNumber) {
             this.generatedNumber = Math.floor((Math.random() * this.maxNumber - this.minNumber + 1) + this.minNumber);
         }
+
+        this.result.concat(str(this.generatedNumber));
+
+        console.log("Result for numbers: " + this.result);
 
         return this.generatedNumber;
     }

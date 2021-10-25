@@ -20,7 +20,7 @@ $(document).ready(function() {
         $("#modalSelectionShape").modal('hide');
 
         //Ajouter fonction au clic sur Start
-        scheduler.start();
+        scheduler.start(scheduler.shapeGenerator.shapeToCount);
     });
 
     //Button show settings

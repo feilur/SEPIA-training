@@ -13,7 +13,7 @@ class Scheduler {
         this.shapeGenerator = new ShapeGenerator(shapeObject);
         this.calculationGenerator = new CalculationGenerator(operatorObject);
     }
-    start() {
+    start(shapeToCount) {
         stopScheduler = false;
         this.manageNumberGenerator();
         this.manageShapeGenerator();
@@ -31,7 +31,7 @@ class Scheduler {
 
         setTimeout(function(){
             resetPage();
-            openFinish(this.shapeGenerator.shapeToCount);
+            openFinish(shapeToCount);
         }, jsonSettings.gameDuration);
     }
     stop() {
