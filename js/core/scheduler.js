@@ -30,7 +30,6 @@ class Scheduler {
         this.startPeriodicCalculationGenerator(calculationPeriod, jsonSettings.calculationSettings.numberOfApparition, this);
 
         setTimeout(function(){
-            resetPage();
             openFinish(shapeToCount);
         }, jsonSettings.gameDuration);
     }
