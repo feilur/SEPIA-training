@@ -1,0 +1,30 @@
+.btnActionBar{
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+}
+
+.fs-xl{
+    font-size: 3rem;
+}
+
+.arrowSelect{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/*
+* Notifications
+*/
+#notifications {
+    position: fixed;
+    z-index: 99999;
+    right: 10px;
+}
+
+#notifications-stack > div {
+    width: 18rem;
+}
+
+.toast-message {
+    display: flex;
+}

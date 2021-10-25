@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="icons/fighter-jet.png">
+    <title>SEPIA Training</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.all.css">
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/application/modalSettings.js"></script>
+    <script type="text/javascript" src="js/core/data/data.js"></script>
+    <script type="text/javascript" src="js/core/display.js"></script>
+    <script type="text/javascript" src="js/core/utils.js"></script>
+    <script type="text/javascript" src="js/core/generators/arrowsGenerator.js"></script>
+    <script type="text/javascript" src="js/core/generators/calculationGenerator.js"></script>
+    <script type="text/javascript" src="js/core/generators/numberGenerator.js"></script>
+    <script type="text/javascript" src="js/core/generators/shapeGenerator.js"></script>
+    <script type="text/javascript" src="js/core/scheduler.js"></script>
+</head>
+
+<body>
+    <!-- Notifications (success or error) -->
+    <div id="notifications" class="pt-2" aria-live="polite" aria-atomic="true">
+        <div id="notifications-stack"></div>
+    </div>
+
+    <div class="container">
+        <h1 class="card-title text-center mt-2">SEPIA TRAINING</h1>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-2 border text-center">
+                                <i id="shapeHide" class="fas fa-4x fa-eye-slash text-muted m-1"></i>
+                                <div id="divShape">
+                                </div>
+                            </div>
+                            <div class="col-8 border d-flex align-items-center justify-content-center">
+                                <div>
+                                    <button id="btnSettings" type="button"
+                                        class="btn btn-lg btn-secondary me-1">Settings</button>
+                                    <button id="btnStart" type="button"
+                                        class="btn btn-lg btn-primary btnActionBar">Start</button>
+                                </div>
+                            </div>
+                            <div class="col-2 border text-center">
+                                <i id="numberSequenceHide" class="fas fa-4x fa-eye-slash text-muted m-1"></i>
+                                <p id="numberSequence" class="fw-bolder m-0 fs-xl"></p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5 text-center">
+                            <div class="col-4"></div>
+                            <div class="col-lg-4 col-9">
+                                <div class="input-group">
+                                    <div class="input-group-text flex-grow-1 p-0 justify-content-center">
+                                        <i id="operationHide" class="fas fa-3x fa-eye-slash text-muted m-1"></i>
+                                        <p id="firstNumber" class="mb-0 me-2 fs-1 fw-bolder text-danger"></p>
+                                        <div id="divOperator" class="text-center"></div>
+                                        <p id="secondNumber" class="mb-0 ms-2 fs-1 fw-bolder text-danger"></p>
+                                    </div>
+
+                                    <input id="resultOperation" class="form-control fs-4" type="number" value=""
+                                        placeholder="Result...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5 justify-content-center">
+                            <div class="col d-flex flex-nowrap justify-content-center">
+                                <i id="arrowUp" class="fas fa-4x fa-arrow-alt-circle-up mb-1 p-2 arrowSelect"></i>
+                            </div>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col d-flex flex-nowrap justify-content-center">
+                                <i id="arrowLeft" class="fas fa-4x fa-arrow-alt-circle-left m-0 p-2 arrowSelect"></i>
+                                <i id="arrowDown"
+                                    class="fas fa-4x fa-arrow-alt-circle-down me-1 ms-1 p-2 arrowSelect"></i>
+                                <i id="arrowRight" class="fas fa-4x fa-arrow-alt-circle-right m-0 p-2 arrowSelect"></i>
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted text-center">
+                            Copyright © 2021
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal settings -->
+    <div class="modal fade" id="modalSettings" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="labelModalSettings" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="labelModalSettings">Setup settings</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Modal selection shape & start training -->
+    <div class="modal fade" id="modalSelectionShape" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Shape to count</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center" id="divShapeToCount">
+                    
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button id="btnStartTraining" type="button" class="btn btn-primary">Start test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal finish -->
+    <div class="modal fade" id="modalFinish" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Finish</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="label-nbShapes">Number of squares</span>
+                        <input type="number" class="form-control" id="inNbShapes" aria-describedby="label-nbShapes">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="label-numbersSeq">Sequence numbers</span>
+                        <input type="number" class="form-control" id="inNumberSequence" aria-describedby="label-numbersSeq">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="label-operationResultFilled">Operation result</span>
+                        <input type="number" class="form-control" id="inOperationResultFilled" aria-describedby="label-operationResultFilled" readonly>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button id="btnValidateFinish" type="button" class="btn btn-primary">Validate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal result -->
+    <div class="modal fade" id="modalResult" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="labelModalResult" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="labelModalResult">Results</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text col-form-label col-8" id="labelNbShapesResult">Number of triangles</span>
+                                <input type="text" class="form-control" id="nbShapesResult" aria-describedby="labelNbShapesResult" readonly>
+                                <div id="nbShapesResultFeedback">
+                                </div>
+                              </div>
+
+                              <div class="input-group mb-3">
+                                <span class="input-group-text col-form-label col-8" id="labelSequenceNumberResult">Number sequence</span>
+                                <input type="text" class="form-control" id="inNumberSequenceResult" aria-describedby="labelSequenceNumberResult" readonly>
+                                <div id="inNumberSequenceResultFeedback">
+                                </div>
+                              </div>
+
+                              <div class="input-group mb-3">
+                                <span class="input-group-text col-form-label col-8" id="labelCalculationResult">Calculation result</span>
+                                <input type="text" class="form-control" id="inCalculationResult" aria-describedby="labelCalculationResult" readonly>
+                                <div id="inCalculationResultFeedback">
+                                </div>
+                              </div>
+
+                              <div class="input-group mb-3">
+                                <span class="input-group-text col-form-label col-8" id="labelArrowResult">Arrow success (%)</span>
+                                <input type="text" class="form-control" id="inArrowResult" aria-describedby="labelArrowSuccessResult" readonly>
+                                <div id="inArrowResultFeedback">
+                                </div>
+                              </div>
+                        </div>                        
+                      </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
