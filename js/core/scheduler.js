@@ -31,7 +31,7 @@ class Scheduler {
 
         setTimeout(function(){
             resetPage();
-            openFinish("triangle"); // TODO: Change that
+            openFinish(this.shapeGenerator.shapeToCount);
         }, jsonSettings.gameDuration);
     }
     stop() {
