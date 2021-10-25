@@ -39,6 +39,6 @@ $(document).ready(function() {
         $("#inNbShapes, #inNumberSequence").removeClass('is-invalid');
         $("#modalFinish").modal('hide');
         
-        openResults(scheduler.shapeGenerator.result, 1234, 450, 90); //TODO: Change value with correct answers
+        openResults(scheduler.shapeGenerator.result, scheduler.numberGenerator.result, scheduler.calculationGenerator.result, 90); //TODO: Change value with correct answers
     });
 });
