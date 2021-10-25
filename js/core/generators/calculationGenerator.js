@@ -74,7 +74,7 @@
                 break;
 
             default:
-                console.log("Not a valid operator to generate a calculation");
+                //console.log("Not a valid operator to generate a calculation");
                 return -1; // Error
         }
 
@@ -152,7 +152,7 @@
                 break;
 
             default:
-                console.log("Not a valid operator to generate a calculation");
+                //console.log("Not a valid operator to generate a calculation");
         }
         this.result = result;
         return result;

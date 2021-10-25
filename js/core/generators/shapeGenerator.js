@@ -20,7 +20,7 @@
         this.lastgeneratedShape = -1;    
         
         this.shapeToCount = this.initShapeToCount();
-        console.log("Shape to count: " + this.shapeToCount);
+        //console.log("Shape to count: " + this.shapeToCount);
 
         this.result = 0;
     }

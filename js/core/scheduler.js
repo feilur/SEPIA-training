@@ -8,7 +8,7 @@ class Scheduler {
 
     constructor() {
         this.numberGenerator = new NumberGenerator(jsonSettings.numbersSequenceSettings.minNumber, jsonSettings.numbersSequenceSettings.maxNumber);
-        console.log(this.numberGenerator);
+        //console.log(this.numberGenerator);
 
         this.shapeGenerator = new ShapeGenerator(shapeObject);
         this.calculationGenerator = new CalculationGenerator(operatorObject);
@@ -25,7 +25,7 @@ class Scheduler {
         const maxCalculationPeriod = jsonSettings.calculationSettings.maxPeriod;
 
         const calculationPeriod = Math.floor((Math.random() * maxCalculationPeriod - minCalculationPeriod + 1) + minCalculationPeriod);
-        console.log("Random period for calculation display:" + calculationPeriod);
+        //console.log("Random period for calculation display:" + calculationPeriod);
 
         this.startPeriodicCalculationGenerator(calculationPeriod, jsonSettings.calculationSettings.numberOfApparition, this);
 
@@ -107,7 +107,7 @@ class Scheduler {
     manageNumberGenerator() {
         if ( !stopScheduler ) {
             const newNumber = this.numberGenerator.generateNumber();
-            console.log(newNumber);
+            //console.log(newNumber);
 
             displayNumberSequence(newNumber);
         }
@@ -116,7 +116,7 @@ class Scheduler {
     manageShapeGenerator() {
         if ( !stopScheduler ) {
             const newShape = this.shapeGenerator.generateShape();
-            console.log(newShape);
+            //console.log(newShape);
 
             displayShape(newShape);
         }
@@ -125,7 +125,7 @@ class Scheduler {
     manageCalculationGenerator() {
         if ( !stopScheduler ) {
             const newCalculation = this.calculationGenerator.generateCalculation();
-            console.log(newCalculation);
+            //console.log(newCalculation);
 
             displayOperation(newCalculation.operatorKey, newCalculation.member1, newCalculation.member2);
         }

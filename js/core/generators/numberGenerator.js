@@ -38,7 +38,7 @@ class NumberGenerator {
 
         this.result += this.generatedNumber;
 
-        console.log("Result for numbers: " + this.result);
+        //console.log("Result for numbers: " + this.result);
 
         return this.generatedNumber;
     }
