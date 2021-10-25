@@ -125,6 +125,7 @@ function resetPage(){
 
     //reset start buttons
     enableStartButton();
+    toggleAnswerOperation(false);
 
     //reset modal finish
     $("#inOperationResultFilled, #inNbShapes, #inNumberSequence").val("");

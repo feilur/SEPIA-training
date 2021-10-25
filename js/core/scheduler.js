@@ -30,6 +30,7 @@ class Scheduler {
         this.startPeriodicCalculationGenerator(calculationPeriod, jsonSettings.calculationSettings.numberOfApparition, this);
 
         setTimeout(function(){
+            resetPage();
             openFinish("triangle"); // TODO: Change that
         }, jsonSettings.gameDuration);
     }
@@ -83,6 +84,8 @@ class Scheduler {
                 numberOfExecutions--;
 
                 if (numberOfExecutions >= 0) {
+                    toggleAnswerOperation(true);
+
                     scheduler.manageCalculationGenerator();
 
                     scheduler.startPeriodicCalculationGenerator(period, numberOfExecutions, scheduler);

@@ -3,13 +3,14 @@ var compteur = 0;
 var stopScheduler = false;
 
 $(document).ready(function() {
+    resetPage();
 
     let scheduler = new Scheduler();
 
 
     //Button start
     $("#btnStart").on('click', function(){
-        displayModalStartTraining("triangle"); //TODO: change shape dynamically
+        displayModalStartTraining(scheduler.shapeGenerator.shapeToCount);
     });
 
     //Button start training (after shape discover)
@@ -38,6 +39,6 @@ $(document).ready(function() {
         $("#inNbShapes, #inNumberSequence").removeClass('is-invalid');
         $("#modalFinish").modal('hide');
         
-        openResults(4, 1234, 450, 90); //TODO: Change value with correct answers
+        openResults(scheduler.shapeGenerator.result, 1234, 450, 90); //TODO: Change value with correct answers
     });
 });

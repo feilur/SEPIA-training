@@ -20,14 +20,6 @@ const operatorObject = {
 const jsonSettings = {
     gameDuration: 50000,
     shapesSettings: {
-        member1:{
-            min: 10,
-            max: 9999
-        },
-        member2:{
-            min: 10,
-            max: 9999
-        },
         period: 5000,
         numberOfApparition: 10
     },

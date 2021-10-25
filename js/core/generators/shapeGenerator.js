@@ -6,6 +6,9 @@
     generatedShape;     ///< String containing the shape to generate
     lastgeneratedShape; ///< Last generatedShape to avoid providing the same one
 
+    shapeToCount;   ///< Shape the user has to count during the test
+    result; ///< Number of shapeToCount during the test
+
     /**
      * @brief Constructor
      * 
@@ -14,7 +17,28 @@
     constructor(shapeObject) {
         this.shapeObject = shapeObject;
         this.generatedShape = -1;
-        this.lastgeneratedShape = -1;     
+        this.lastgeneratedShape = -1;    
+        
+        this.shapeToCount = this.initShapeToCount();
+        console.log("Shape to count: " + this.shapeToCount);
+
+        this.result = 0;
+    }
+
+    /**
+     * @brief Sets the shape to count
+     * 
+     * @returns The shape the user has to count
+     */
+    initShapeToCount() {
+        this.lastgeneratedShape = this.generatedShape;
+
+        const shapeArray = Object.keys(this.shapeObject);
+        const maxIndex = shapeArray.length;
+
+        const randomIndex = Math.floor(Math.random() * maxIndex);
+        
+        return shapeArray[randomIndex];
     }
 
     /**
@@ -31,6 +55,10 @@
         while (this.generatedShape == this.lastgeneratedShape && shapeArray.length > 1) {
             const randomIndex = Math.floor(Math.random() * maxIndex);
             this.generatedShape = shapeArray[randomIndex];
+        }
+
+        if (this.generatedShape == this.shapeToCount) {
+            this.result++;
         }
 
         return this.generatedShape;
