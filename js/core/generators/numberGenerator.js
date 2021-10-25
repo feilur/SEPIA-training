@@ -36,7 +36,7 @@ class NumberGenerator {
             this.generatedNumber = Math.floor((Math.random() * this.maxNumber - this.minNumber + 1) + this.minNumber);
         }
 
-        this.result.concat(str(this.generatedNumber));
+        this.result += this.generatedNumber;
 
         console.log("Result for numbers: " + this.result);
 
