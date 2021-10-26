@@ -17,6 +17,8 @@ class Scheduler {
         stopScheduler = false;
 
         this.numberGenerator.resetResult();
+        this.shapeGenerator.resetShapeToCount();
+        this.shapeGenerator.resetResult();
 
         this.manageNumberGenerator();
         this.manageShapeGenerator();

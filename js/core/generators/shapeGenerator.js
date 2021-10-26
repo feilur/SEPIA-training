@@ -19,10 +19,10 @@
         this.generatedShape = -1;
         this.lastgeneratedShape = -1;    
         
-        this.shapeToCount = this.initShapeToCount();
+        this.resetShapeToCount();
         //console.log("Shape to count: " + this.shapeToCount);
 
-        this.result = 0;
+        this.resetResult();
     }
 
     /**
@@ -30,7 +30,7 @@
      * 
      * @returns The shape the user has to count
      */
-    initShapeToCount() {
+    resetShapeToCount() {
         this.lastgeneratedShape = this.generatedShape;
 
         const shapeArray = Object.keys(this.shapeObject);
@@ -38,7 +38,11 @@
 
         const randomIndex = Math.floor(Math.random() * maxIndex);
         
-        return shapeArray[randomIndex];
+        this.shapeToCount = shapeArray[randomIndex];
+    }
+
+    resetResult() {
+        this.result = 0;
     }
 
     /**
