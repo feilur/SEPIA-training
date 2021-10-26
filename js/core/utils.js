@@ -27,9 +27,11 @@ function fShowSuccess(message) {
 
 function fSetInvalidInput(idInput, errorMessage){
     $('#' + idInput).addClass("is-invalid");
+    $('#' + idInput).removeClass("is-valid");
 
     if ($('#' + idInput).parent().hasClass('input-group')) {
         $('#' + idInput).parent().addClass("is-invalid");
+        $('#' + idInput).parent().removeClass("is-valid");
     }
 
     $('#' + idInput + "Feedback").addClass("invalid-feedback");
@@ -37,12 +39,28 @@ function fSetInvalidInput(idInput, errorMessage){
 }
 
 function fSetValidInput(idInput, message){
+    $('#' + idInput).removeClass("is-invalid");
     $('#' + idInput).addClass("is-valid");
 
     if ($('#' + idInput).parent().hasClass('input-group')) {
+        $('#' + idInput).parent().removeClass("is-invalid");
         $('#' + idInput).parent().addClass("is-valid");
     }
 
     $('#' + idInput + "Feedback").addClass("valid-feedback");
     $('#' + idInput + "Feedback").html(message);
+}
+
+/**
+ * Check and get json settings store in local storage if exist
+ */
+function fGetStoredSettings(){
+    let settingsStored = localStorage.getItem('jsonSettings');
+    if(settingsStored == null){
+        //if null, init local storage with default value
+        localStorage.setItem('jsonSettings', JSON.stringify(jsonSettings));
+    }else{
+        //if not null replace default settings
+        jsonSettings = JSON.parse(localStorage.getItem("jsonSettings"));
+    }
 }
