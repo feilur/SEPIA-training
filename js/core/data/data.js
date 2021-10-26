@@ -17,7 +17,7 @@ const operatorObject = {
     multiplicate: '<i class="fas fa-2x fa-times"></i>'
 };
 
-const jsonSettings = {
+var jsonSettings = {
     gameDuration: 50000,
     shapesSettings: {
         period: 5000,

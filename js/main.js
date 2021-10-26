@@ -3,6 +3,7 @@ var compteur = 0;
 var stopScheduler = false;
 
 $(document).ready(function() {
+    fGetStoredSettings();
     resetPage();
 
     let scheduler = new Scheduler();
