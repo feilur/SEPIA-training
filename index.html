@@ -94,17 +94,18 @@
                                 <div>
                                     <div id="donate-button-container">
                                         <div id="donate-button"></div>
-                                        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                                        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"
+                                            charset="UTF-8"></script>
                                         <script>
-                                        PayPal.Donation.Button({
-                                        env:'production',
-                                        hosted_button_id:'4GMNBUUUN28QQ',
-                                        image: {
-                                        src:'https://www.paypalobjects.com/en_US/FR/i/btn/btn_donateCC_LG.gif',
-                                        alt:'Donate with PayPal button',
-                                        title:'PayPal - The safer, easier way to pay online!',
-                                        }
-                                        }).render('#donate-button');
+                                            PayPal.Donation.Button({
+                                                env: 'production',
+                                                hosted_button_id: '4GMNBUUUN28QQ',
+                                                image: {
+                                                    src: 'https://www.paypalobjects.com/en_US/FR/i/btn/btn_donateCC_LG.gif',
+                                                    alt: 'Donate with PayPal button',
+                                                    title: 'PayPal - The safer, easier way to pay online!',
+                                                }
+                                            }).render('#donate-button');
                                         </script>
                                     </div>
                                 </div>
@@ -118,21 +119,307 @@
 
     <!-- Modal settings -->
     <div class="modal fade" id="modalSettings" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="labelModalSettings" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="labelModalSettings">Setup settings</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            </div>
-            <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        aria-labelledby="labelModalSettings" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="labelModalSettings">Setup settings</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordion" id="accordionSettings">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSettingsOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSettingsOne" aria-expanded="true"
+                                    aria-controls="collapseSettingsOne">
+                                    General
+                                </button>
+                            </h2>
+                            <div id="collapseSettingsOne" class="accordion-collapse collapse show"
+                                aria-labelledby="headingSettingsOne" data-bs-parent="#accordionSettings">
+                                <div class="accordion-body">
+                                    <div class="mb-3 row">
+                                        <label for="inSettingsGlobalGameDuration" class="col-3 col-form-label">Game duration (sec)</label>
+                                        <div class="col-6">
+                                            <input type="number" placeholder="default: 50" class="form-control" id="inSettingsGlobalGameDuration">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSettingsTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSettingsTwo" aria-expanded="false"
+                                    aria-controls="collapseSettingsTwo">
+                                    Shapes
+                                </button>
+                            </h2>
+                            <div id="collapseSettingsTwo" class="accordion-collapse collapse"
+                                aria-labelledby="headingSettingsTwo" data-bs-parent="#accordionSettings">
+                                <div class="accordion-body">
+                                    <div class="mb-3 row">
+                                        <label for="inSettingsShapesPeriod" class="col-3 col-form-label">Change period (sec)</label>
+                                        <div class="col-3">
+                                            <input type="number" placeholder="default: 5" class="form-control" id="inSettingsShapesPeriod">
+                                        </div>
+
+                                        <label for="inSettingsShapesNbApparition" class="col-3 col-form-label">Number of apparition</label>
+                                        <div class="col-3">
+                                            <input type="number" placeholder="default: 10" class="form-control" id="inSettingsShapesNbApparition">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSettingsThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSettingsThree" aria-expanded="false"
+                                    aria-controls="collapseSettingsThree">
+                                    Calculation
+                                </button>
+                            </h2>
+                            <div id="collapseSettingsThree" class="accordion-collapse collapse"
+                                aria-labelledby="headingSettingsThree" data-bs-parent="#accordionSettings">
+                                <div class="accordion-body">
+                                    <h5>Global</h5>
+                                    <div id="formCalculationGlobalSettings" class="ms-3">
+                                        <hr/>
+                                        <div class="mb-3 row">
+                                            <label for="inSettingsCalculationMinPeriod" class="col-3 col-form-label">Minimum period</label>
+                                            <div class="col-3">
+                                                <input type="number" placeholder="default: 10" class="form-control" id="inSettingsCalculationMinPeriod">
+                                            </div>
+    
+                                            <label for="inSettingsCalculationMaxPeriod" class="col-3 col-form-label">Maximum period</label>
+                                            <div class="col-3">
+                                                <input type="number" placeholder="default: 35" class="form-control" id="inSettingsCalculationMaxPeriod">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label for="inSettingsCalculationNumberOfApparition" class="col-3 col-form-label">Number of apparition</label>
+                                            <div class="col-3">
+                                                <input type="number" placeholder="default: 1" class="form-control" id="inSettingsCalculationNumberOfApparition">
+                                            </div>
+    
+                                            <label for="inSettingsCalculationApparitionTime" class="col-3 col-form-label">Apparition time</label>
+                                            <div class="col-3">
+                                                <input type="number" placeholder="default: 5" class="form-control" id="inSettingsCalculationApparitionTime">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label for="inSettingsCalculationInputTime" class="col-3 col-form-label">Input time</label>
+                                            <div class="col-3">
+                                                <input type="number" placeholder="default: 10" class="form-control" id="inSettingsCalculationInputTime">
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                    </div>
+
+                                    <h5>Secondary</h5>
+                                    <div id="formCalculationSecondarySettings" class="ms-3">
+                                        <hr/>
+                                        <div id="formPlusOperator">
+                                            <h5>Plus operator</h5>
+                                            <hr/>
+                                            <div id="formPlusOperatorMembers" class="ms-5"> 
+                                                <h6>First member</h6>
+                                                <div class="mb-3 row">
+                                                    <label for="inSettingsCalculationPlusM1Min" class="col-3 col-form-label">Minimum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 10" class="form-control" id="inSettingsCalculationPlusM1Min">
+                                                    </div>
+            
+                                                    <label for="inSettingsCalculationPlusM1Max" class="col-3 col-form-label">Maximum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 9999" class="form-control" id="inSettingsCalculationPlusM1Max">
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <h6>Second member</h6>
+                                                <div class="mb-3 row">
+                                                    <label for="inSettingsCalculationPlusM2Min" class="col-3 col-form-label">Minimum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 10" class="form-control" id="inSettingsCalculationPlusM2Min">
+                                                    </div>
+            
+                                                    <label for="inSettingsCalculationPlusM2Max" class="col-3 col-form-label">Maximum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 9999" class="form-control" id="inSettingsCalculationPlusM2Max">
+                                                    </div>
+                                                </div>
+                                            </div>                                        
+                                            <hr/>
+                                        </div>
+    
+                                        <div id="formMinusOperator">
+                                            <h5>Minus operator</h5>
+                                            <hr/>
+                                            <div id="formMinusOperatorMembers" class="ms-5"> 
+                                                <h6>First member</h6>
+                                                <div class="mb-3 row">
+                                                    <label for="inSettingsCalculationMinusM1Min" class="col-3 col-form-label">Minimum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 10" class="form-control" id="inSettingsCalculationMinusM1Min">
+                                                    </div>
+            
+                                                    <label for="inSettingsCalculationMinusM1Max" class="col-3 col-form-label">Maximum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 9999" class="form-control" id="inSettingsCalculationMinusM1Max">
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <h6>Second member</h6>
+                                                <div class="mb-3 row">
+                                                    <label for="inSettingsCalculationMinusM2Min" class="col-3 col-form-label">Minimum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 10" class="form-control" id="inSettingsCalculationMinusM2Min">
+                                                    </div>
+            
+                                                    <label for="inSettingsCalculationMinusM2Max" class="col-3 col-form-label">Maximum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 9999" class="form-control" id="inSettingsCalculationMinusM2Max">
+                                                    </div>
+                                                </div>
+                                            </div>                                        
+                                            <hr/>
+                                        </div>
+    
+                                        <div id="formDivideOperator">
+                                            <h5>Divide operator</h5>
+                                            <hr/>
+                                            <div id="formDivideOperatorMembers" class="ms-5"> 
+                                                <h6>First member</h6>
+                                                <div class="mb-3 row">
+                                                    <label for="inSettingsCalculationDivideM1Min" class="col-3 col-form-label">Minimum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 3" class="form-control" id="inSettingsCalculationDivideM1Min">
+                                                    </div>
+            
+                                                    <label for="inSettingsCalculationDivideM1Max" class="col-3 col-form-label">Maximum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 10" class="form-control" id="inSettingsCalculationDivideM1Max">
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <h6>Second member</h6>
+                                                <div class="mb-3 row">
+                                                    <label for="inSettingsCalculationDivideM2Min" class="col-3 col-form-label">Minimum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 10" class="form-control" id="inSettingsCalculationDivideM2Min">
+                                                    </div>
+            
+                                                    <label for="inSettingsCalculationDivideM2Max" class="col-3 col-form-label">Maximum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 1000" class="form-control" id="inSettingsCalculationDivideM2Max">
+                                                    </div>
+                                                </div>
+                                            </div>                                        
+                                            <hr/>
+                                        </div>
+    
+                                        <div id="formMultiplicateOperator">
+                                            <h5>Multiplicate operator</h5>
+                                            <hr/>
+                                            <div id="formMultiplicateOperatorMembers" class="ms-5"> 
+                                                <h6>First member</h6>
+                                                <div class="mb-3 row">
+                                                    <label for="inSettingsCalculationMultiplicateM1Min" class="col-3 col-form-label">Minimum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 10" class="form-control" id="inSettingsCalculationMultiplicateM1Min">
+                                                    </div>
+            
+                                                    <label for="inSettingsCalculationMultiplicateM1Max" class="col-3 col-form-label">Maximum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 9999" class="form-control" id="inSettingsCalculationMultiplicateM1Max">
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <h6>Second member</h6>
+                                                <div class="mb-3 row">
+                                                    <label for="inSettingsCalculationMultiplicateM2Min" class="col-3 col-form-label">Minimum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 10" class="form-control" id="inSettingsCalculationMultiplicateM2Min">
+                                                    </div>
+            
+                                                    <label for="inSettingsCalculationMultiplicateM2Max" class="col-3 col-form-label">Maximum value</label>
+                                                    <div class="col-3">
+                                                        <input type="number" placeholder="default: 9999" class="form-control" id="inSettingsCalculationMultiplicateM2Max">
+                                                    </div>
+                                                </div>
+                                            </div>                                        
+                                            <hr/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSettingsFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSettingsFour" aria-expanded="false"
+                                    aria-controls="collapseSettingsFour">
+                                    Numbers Sequence
+                                </button>
+                            </h2>
+                            <div id="collapseSettingsFour" class="accordion-collapse collapse"
+                                aria-labelledby="headingSettingsFour" data-bs-parent="#accordionSettings">
+                                <div class="accordion-body">
+                                    <div class="mb-3 row">
+                                        <label for="inSettingsNumbersSequenceMinNumber" class="col-3 col-form-label">Minimum number</label>
+                                        <div class="col-3">
+                                            <input type="number" placeholder="default: 1" class="form-control" id="inSettingsNumbersSequenceMinNumber">
+                                        </div>
+
+                                        <label for="inSettingsNumbersSequenceMaxNumber" class="col-3 col-form-label">Maximum number</label>
+                                        <div class="col-3">
+                                            <input type="number" placeholder="default: 9" class="form-control" id="inSettingsNumbersSequenceMaxNumber">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="inSettingsNumbersSequencePeriod" class="col-3 col-form-label">Refresh period</label>
+                                        <div class="col-3">
+                                            <input type="number" placeholder="default: 10" class="form-control" id="inSettingsNumbersSequencePeriod">
+                                        </div>
+
+                                        <label for="inSettingsNumbersSequenceNumberOfApparition" class="col-3 col-form-label">Number of apparition</label>
+                                        <div class="col-3">
+                                            <input type="number" placeholder="default: 5" class="form-control" id="inSettingsNumbersSequenceNumberOfApparition">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSettingsFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSettingsFive" aria-expanded="false"
+                                    aria-controls="collapseSettingsFive">
+                                    Arrows
+                                </button>
+                            </h2>
+                            <div id="collapseSettingsFive" class="accordion-collapse collapse"
+                                aria-labelledby="headingSettingsFive" data-bs-parent="#accordionSettings">
+                                <div class="accordion-body">
+                                    <div class="mb-3 row">
+                                        <label for="inSettingsArrowsMinPercentSuccess" class="col-5 col-form-label">Minimum percentage to success</label>
+                                        <div class="col-5">
+                                            <input type="number" placeholder="default: 90" class="form-control" id="inSettingsArrowsMinPercentSuccess">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button id="btnSaveSettings" type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- Modal selection shape & start training -->
@@ -145,7 +432,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="text-center" id="divShapeToCount">
-                    
+
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
@@ -171,12 +458,14 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="label-numbersSeq">Sequence numbers</span>
-                        <input type="number" class="form-control" id="inNumberSequence" aria-describedby="label-numbersSeq">
+                        <input type="number" class="form-control" id="inNumberSequence"
+                            aria-describedby="label-numbersSeq">
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="label-operationResultFilled">Operation result</span>
-                        <input type="number" class="form-control" id="inOperationResultFilled" aria-describedby="label-operationResultFilled" readonly>
+                        <input type="number" class="form-control" id="inOperationResultFilled"
+                            aria-describedby="label-operationResultFilled" readonly>
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
@@ -199,34 +488,42 @@
                     <form>
                         <div class="row">
                             <div class="input-group mb-3">
-                                <span class="input-group-text col-form-label col-8" id="labelNbShapesResult">Number of triangles</span>
-                                <input type="text" class="form-control" id="nbShapesResult" aria-describedby="labelNbShapesResult" readonly>
+                                <span class="input-group-text col-form-label col-8" id="labelNbShapesResult">Number of
+                                    triangles</span>
+                                <input type="text" class="form-control" id="nbShapesResult"
+                                    aria-describedby="labelNbShapesResult" readonly>
                                 <div id="nbShapesResultFeedback">
                                 </div>
-                              </div>
+                            </div>
 
-                              <div class="input-group mb-3">
-                                <span class="input-group-text col-form-label col-8" id="labelSequenceNumberResult">Number sequence</span>
-                                <input type="text" class="form-control" id="inNumberSequenceResult" aria-describedby="labelSequenceNumberResult" readonly>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text col-form-label col-8"
+                                    id="labelSequenceNumberResult">Number sequence</span>
+                                <input type="text" class="form-control" id="inNumberSequenceResult"
+                                    aria-describedby="labelSequenceNumberResult" readonly>
                                 <div id="inNumberSequenceResultFeedback">
                                 </div>
-                              </div>
+                            </div>
 
-                              <div class="input-group mb-3">
-                                <span class="input-group-text col-form-label col-8" id="labelCalculationResult">Calculation result</span>
-                                <input type="text" class="form-control" id="inCalculationResult" aria-describedby="labelCalculationResult" readonly>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text col-form-label col-8"
+                                    id="labelCalculationResult">Calculation result</span>
+                                <input type="text" class="form-control" id="inCalculationResult"
+                                    aria-describedby="labelCalculationResult" readonly>
                                 <div id="inCalculationResultFeedback">
                                 </div>
-                              </div>
+                            </div>
 
-                              <div class="input-group mb-3">
-                                <span class="input-group-text col-form-label col-8" id="labelArrowResult">Arrow success (%)</span>
-                                <input type="text" class="form-control" id="inArrowResult" aria-describedby="labelArrowSuccessResult" readonly>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text col-form-label col-8" id="labelArrowResult">Arrow success
+                                    (%)</span>
+                                <input type="text" class="form-control" id="inArrowResult"
+                                    aria-describedby="labelArrowSuccessResult" readonly>
                                 <div id="inArrowResultFeedback">
                                 </div>
-                              </div>
-                        </div>                        
-                      </form>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -235,4 +532,5 @@
         </div>
     </div>
 </body>
+
 </html>
