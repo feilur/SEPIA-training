@@ -21,7 +21,7 @@ class NumberGenerator {
         this.generatedNumber = -1;
         this.lastgeneratedNumber = -1;
 
-        this.result = "";
+        this.resetResult();
     }
 
     /**
@@ -41,5 +41,9 @@ class NumberGenerator {
         //console.log("Result for numbers: " + this.result);
 
         return this.generatedNumber;
+    }
+
+    resetResult() {
+        this.result = "";
     }
 }
