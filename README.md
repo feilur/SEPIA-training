@@ -3,3 +3,4 @@ TODO:
     - [ ] Manage sound
     - [ ] Add stats in home page (save score each time in local storage)
     - [ ] Compute numberOfApparition parameters according to period parameters
+    - [ ] Improve mobile version
