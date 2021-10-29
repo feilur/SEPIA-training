@@ -1,8 +1,3 @@
-.btnActionBar{
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
-}
-
 .fs-xl{
     font-size: 3rem;
 }
@@ -27,4 +22,24 @@
 
 .toast-message {
     display: flex;
+}
+
+
+/* RESPONSIVE CSS */
+@media screen and (max-width: 575px) { /* xs */
+    .fa-responsive{
+        font-size: 2em;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) { /* sm */
+    .fa-responsive{
+        font-size: 3em;
+    }
+}
+
+@media screen and (min-width: 768px) { /* md - lg - xl... */
+    .fa-responsive{
+        font-size: 4em;
+    }
 }
