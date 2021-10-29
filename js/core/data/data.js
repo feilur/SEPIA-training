@@ -19,6 +19,7 @@ const operatorObject = {
 
 var jsonSettings = {
     gameDuration: 50000,
+    enableAudio: true,
     shapesSettings: {
         period: 5000,
         numberOfApparition: 10

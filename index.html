@@ -40,20 +40,21 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row justify-content-center">
-                            <div class="col-2 text-center"> <!-- border -->
+                            <div class="col-2 col-lg-3 text-center">
                                 <i id="shapeHide" class="fas fa-responsive fa-eye-slash text-muted m-1"></i>
                                 <div id="divShape">
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 col-lg-3">
                                 <button id="btnSettings" type="button"
                                     class="h-100 w-100 btn btn-lg btn-secondary">Settings</button>
                             </div>
-                            <div class="col-4">
+                            
+                            <div class="col-4 col-lg-3">
                                 <button id="btnStart" type="button"
                                     class="h-100 w-100 btn btn-lg btn-primary">Start</button>
                             </div>
-                            <div class="col-2">
+                            <div class="col-2 col-lg-3 text-center">
                                 <i id="numberSequenceHide" class="fas fa-responsive fa-eye-slash text-muted m-1"></i>
                                 <p id="numberSequence" class="fw-bolder m-0 fs-xl"></p>
                             </div>
@@ -141,11 +142,26 @@
                             <div id="collapseSettingsOne" class="accordion-collapse collapse show"
                                 aria-labelledby="headingSettingsOne" data-bs-parent="#accordionSettings">
                                 <div class="accordion-body">
-                                    <div class="mb-3 row">
+                                    <div class="mb-3 row align-items-center">
                                         <label for="inSettingsGlobalGameDuration" class="col-3 col-form-label">Game duration (sec)</label>
-                                        <div class="col-6">
+                                        <div class="col-3">
                                             <input type="number" placeholder="default: 50" class="form-control" id="inSettingsGlobalGameDuration">
                                         </div>
+
+                                        <div class="col-6">
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="inSettingsGlobalEnableSound">
+                                                    Enable sound
+                                                </label>
+                                                <input class="form-check-input" type="radio" name="flexRadioEnableSound" id="inSettingsGlobalEnableSound">
+                                              </div>
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioEnableSound" id="inSettingsGlobalDisableSound">
+                                                <label class="form-check-label" for="inSettingsGlobalDisableSound">
+                                                  Disable sound
+                                                </label>
+                                              </div>
+                                          </div>
                                     </div>
                                 </div>
                             </div>

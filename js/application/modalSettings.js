@@ -12,6 +12,7 @@ function openModalSettings(){
     //Load all field with current jsonSettings
     //Global settings
     $("#inSettingsGlobalGameDuration").val(jsonSettings.gameDuration/1000);
+    $("#inSettingsGlobalEnableSound").prop("checked", jsonSettings.enableAudio);
 
     //Shapes settings
     $("#inSettingsShapesPeriod").val(jsonSettings.shapesSettings.period/1000);
@@ -64,7 +65,7 @@ function openModalSettings(){
 
 function saveSettings(){
     let arrayAllSettingsValue = new Array();
-    $("#modalSettings input").toArray().forEach(settingCourant => arrayAllSettingsValue[settingCourant.id] = settingCourant.value);
+    $("#modalSettings [type=number]").toArray().forEach(settingCourant => arrayAllSettingsValue[settingCourant.id] = settingCourant.value);
     
     //check that all inputs are not empty
     let nbErreur = 0;
@@ -83,6 +84,7 @@ function saveSettings(){
     //assign all inputs to global settings var
     //Global settings
     jsonSettings.gameDuration = $("#inSettingsGlobalGameDuration").val() * 1000;
+    jsonSettings.enableAudio = $("#inSettingsGlobalEnableSound").prop("checked");
 
     //Shapes settings
     jsonSettings.shapesSettings.period = $("#inSettingsShapesPeriod").val() * 1000;
