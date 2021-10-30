@@ -17,6 +17,8 @@ class Scheduler {
     }
     start(shapeToCount) {
         gStopScheduler = false;
+        nbTotalArrows = 0;
+        nbArrowsSuccess = 0;
 
         this.numberGenerator.resetResult();
         this.shapeGenerator.resetShapeToCount();
@@ -91,8 +93,7 @@ class Scheduler {
     startPeriodicArrowsGenerator(minPeriod, maxPeriod, scheduler) {
         let  calculationPeriod = Math.floor(Math.random() * (maxPeriod - minPeriod + 1)) + minPeriod;
         calculationPeriod *= 1000;
-        console.log("random period: " + calculationPeriod);
-        console.log("stop scheduler: " + gStopScheduler);
+
         if ( gStopScheduler == false ) {
             setTimeout(function(){
                     scheduler.manageArrowsGenerator();
@@ -144,7 +145,7 @@ class Scheduler {
             const newShape = this.shapeGenerator.generateShape();
             //console.log(newShape);
 
-            displayShape(newShape);
+            displayShape(newShape);            
         }
     }
 
@@ -161,6 +162,9 @@ class Scheduler {
         if (!gStopScheduler){
             const newArrows = this.arrowsGenerator.generateArrows();
             displayArrowState(newArrows, "warning");
+
+            nbTotalArrows +=1;
+            console.log(nbTotalArrows);
         }
     }
 

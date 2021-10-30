@@ -13,7 +13,6 @@ class ArrowsGenerator{
      constructor(arrowsObject) {
         this.arrowsObject = arrowsObject;
         this.generatedArrows = -1;
-        
     }
 
     /**

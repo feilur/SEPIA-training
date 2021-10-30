@@ -2,6 +2,9 @@ var compteur = 0;
 
 var gStopScheduler;
 
+var nbArrowsSuccess;
+var nbTotalArrows;
+
 $(document).ready(function() {
     fGetStoredSettings();
     resetPage();
@@ -41,6 +44,37 @@ $(document).ready(function() {
         $("#inNbShapes, #inNumberSequence").removeClass('is-invalid');
         $("#modalFinish").modal('hide');
         
-        openResults(scheduler.shapeGenerator.result, scheduler.numberGenerator.result, scheduler.calculationGenerator.result, 90); //TODO: Change value with correct answers
+let arrowsPercentSuccess = Math.floor((nbArrowsSuccess / nbTotalArrows) * 100);
+
+        openResults(scheduler.shapeGenerator.result, scheduler.numberGenerator.result, scheduler.calculationGenerator.result, arrowsPercentSuccess);
     });
+
+    //Keyboard binds
+    keyboardJS.bind('up', (e) => {
+        keyPressEvent("Up");
+      });
+
+      keyboardJS.bind('right', (e) => {
+        keyPressEvent("Right");
+      });
+
+      keyboardJS.bind('down', (e) => {
+        keyPressEvent("Down");
+      });
+
+      keyboardJS.bind('left', (e) => {
+        keyPressEvent("Left");
+      });
 });
+
+function keyPressEvent(direction){
+    if($("#arrow" + direction + ".text-warning").length == 1){
+        displayArrowState(direction, "success");
+        nbArrowsSuccess+=1;
+        console.log("success: " + nbArrowsSuccess);
+    }else{
+        //if there are other warning arrows, they become red
+        $(".arrowSelect.text-warning").addClass("text-danger");
+        $(".arrowSelect.text-warning").removeClass("text-warning");
+    }
+}
