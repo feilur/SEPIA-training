@@ -17,9 +17,16 @@ const operatorObject = {
     multiplicate: '<i class="fas fa-2x fa-times"></i>'
 };
 
+const arrowsObject = [
+    "Up",
+    "Left",
+    "Down",
+    "Right"
+]
+
 var jsonSettings = {
     gameDuration: 50000,
-    enableAudio: true,
+    enableSound: true,
     shapesSettings: {
         period: 5000,
         numberOfApparition: 10
@@ -78,6 +85,9 @@ var jsonSettings = {
         numberOfApparition: 5
     },
     arrowsSettings:{
-        minPercentToSuccess: 90
+        minPercentToSuccess: 90,
+        minPeriod: 2,
+        maxPeriod: 5,
+        nbSimultaneousPresses: 2
     }
 }

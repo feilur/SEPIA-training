@@ -1,6 +1,6 @@
 var compteur = 0;
 
-var stopScheduler = false;
+var gStopScheduler;
 
 $(document).ready(function() {
     fGetStoredSettings();
@@ -17,6 +17,7 @@ $(document).ready(function() {
     //Button start training (after shape discover)
     $("#btnStartTraining").on('click', function(){
         disableStartButton();
+        disableSettingsButton();
 
         $("#modalSelectionShape").modal('hide');
 

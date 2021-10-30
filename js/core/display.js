@@ -101,10 +101,22 @@ function disableStartButton(){
     $("#btnStart").addClass('disabled');
 }
 
+function enableSettingsButton(){
+    $("#btnStart").prop('disabled', false);
+    $("#btnStart").removeClass('disabled');
+}
+
+function disableSettingsButton(){
+    $("#btnSettings").prop('disabled', true);
+    $("#btnSettings").addClass('disabled');
+}
+
 /**
  * @brief Reset all inputs of form with question mark icon instead of elements
  */
 function resetPage(){
+    gStopScheduler = true;
+    
     //Shape replaced with question mark
     $("#shapeHide").show();
     $("#divShape")[0].innerHTML = "";
@@ -121,10 +133,12 @@ function resetPage(){
     $("#numberSequence")[0].innerHTML = "";
 
     //reset arrows background
-    $(".arrowSelect").removeClass("bg-warning");
+    $(".arrowSelect").removeClass("text-warning text-success text-danger");
 
-    //reset start buttons
+    //reset buttons
     enableStartButton();
+    enableSettingsButton();
+    
     toggleAnswerOperation(false);
 
     //reset modal finish
@@ -186,7 +200,7 @@ function openResults(nbShapeAnswer, sequenceNumbersAnswer, operationAnswer, user
         fSetInvalidInput("inCalculationResult", "Correct answer was: " + operationAnswer);
     }
 
-    if(userArrowPercentSuccess >= jsonSettings.arrowsSettings.minPercentToSuccess){
+    if(userArrowPercentSuccess >= parseInt(jsonSettings.arrowsSettings.minPercentToSuccess)){
         fSetValidInput("inArrowResult", "");
     }else{
         fSetInvalidInput("inArrowResult", "score is too low");
@@ -194,6 +208,7 @@ function openResults(nbShapeAnswer, sequenceNumbersAnswer, operationAnswer, user
 
     //Enable start button
     enableStartButton();
+    enableSettingsButton();
 
     $("#modalResult").modal('show');
 }

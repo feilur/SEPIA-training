@@ -43,34 +43,34 @@
 
         switch (operatorKey) {
             case "plus":
-                this.minValueMember1 = jsonSettings.calculationSettings.plusOperation.member1.min;
-                this.maxValueMember1 = jsonSettings.calculationSettings.plusOperation.member1.max;
+                this.minValueMember1 = parseInt(jsonSettings.calculationSettings.plusOperation.member1.min);
+                this.maxValueMember1 = parseInt(jsonSettings.calculationSettings.plusOperation.member1.max);
 
-                this.minValueMember2 = jsonSettings.calculationSettings.plusOperation.member2.min;
-                this.maxValueMember2 = jsonSettings.calculationSettings.plusOperation.member2.max;
+                this.minValueMember2 = parseInt(jsonSettings.calculationSettings.plusOperation.member2.min);
+                this.maxValueMember2 = parseInt(jsonSettings.calculationSettings.plusOperation.member2.max);
                 break;
 
             case "minus":
-                this.minValueMember1 = jsonSettings.calculationSettings.minusOperation.member1.min;
-                this.maxValueMember1 = jsonSettings.calculationSettings.minusOperation.member1.max;
+                this.minValueMember1 = parseInt(jsonSettings.calculationSettings.minusOperation.member1.min);
+                this.maxValueMember1 = parseInt(jsonSettings.calculationSettings.minusOperation.member1.max);
 
-                this.minValueMember2 = jsonSettings.calculationSettings.minusOperation.member2.min;
-                this.maxValueMember2 = jsonSettings.calculationSettings.minusOperation.member2.max;
+                this.minValueMember2 = parseInt(jsonSettings.calculationSettings.minusOperation.member2.min);
+                this.maxValueMember2 = parseInt(jsonSettings.calculationSettings.minusOperation.member2.max);
                 break;
 
             case "divide":
-                this.minValueMember2 = jsonSettings.calculationSettings.divideOperation.member2.min;
-                this.maxValueMember2 = jsonSettings.calculationSettings.divideOperation.member2.max;
+                this.minValueMember2 = parseInt(jsonSettings.calculationSettings.divideOperation.member2.min);
+                this.maxValueMember2 = parseInt(jsonSettings.calculationSettings.divideOperation.member2.max);
 
                 // member 1 will be determined according to member 2 (to get null remainder)
                 break;
 
             case "multiplicate":
-                this.minValueMember1 = jsonSettings.calculationSettings.multiplicateOperation.member1.min;
-                this.maxValueMember1 = jsonSettings.calculationSettings.multiplicateOperation.member1.max;
+                this.minValueMember1 = parseInt(jsonSettings.calculationSettings.multiplicateOperation.member1.min);
+                this.maxValueMember1 = parseInt(jsonSettings.calculationSettings.multiplicateOperation.member1.max);
 
-                this.minValueMember2 = jsonSettings.calculationSettings.multiplicateOperation.member2.min;
-                this.maxValueMember2 = jsonSettings.calculationSettings.multiplicateOperation.member2.max;
+                this.minValueMember2 = parseInt(jsonSettings.calculationSettings.multiplicateOperation.member2.min);
+                this.maxValueMember2 = parseInt(jsonSettings.calculationSettings.multiplicateOperation.member2.max);
                 break;
 
             default:
@@ -83,8 +83,8 @@
         let member1;
 
         if (operatorKey == "divide") {
-            const minQuotient = jsonSettings.calculationSettings.divideOperation.member1.min;
-            const maxQuotient = jsonSettings.calculationSettings.divideOperation.member1.max;
+            const minQuotient = parseInt(jsonSettings.calculationSettings.divideOperation.member1.min);
+            const maxQuotient = parseInt(jsonSettings.calculationSettings.divideOperation.member1.max);
 
             const quotient = Math.floor((Math.random() * maxQuotient - minQuotient + 1) + minQuotient);
 

@@ -26,12 +26,12 @@ function fShowSuccess(message) {
 }
 
 function fSetInvalidInput(idInput, errorMessage){
-    $('#' + idInput).addClass("is-invalid");
     $('#' + idInput).removeClass("is-valid");
+    $('#' + idInput).addClass("is-invalid");
 
     if ($('#' + idInput).parent().hasClass('input-group')) {
-        $('#' + idInput).parent().addClass("is-invalid");
         $('#' + idInput).parent().removeClass("is-valid");
+        $('#' + idInput).parent().addClass("is-invalid");
     }
 
     $('#' + idInput + "Feedback").addClass("invalid-feedback");

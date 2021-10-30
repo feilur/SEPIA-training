@@ -5,6 +5,7 @@ class Scheduler {
     numberGenerator;
     shapeGenerator;
     calculationGenerator;
+    arrowsGenerator;
 
     constructor() {
         this.numberGenerator = new NumberGenerator(jsonSettings.numbersSequenceSettings.minNumber, jsonSettings.numbersSequenceSettings.maxNumber);
@@ -12,9 +13,10 @@ class Scheduler {
 
         this.shapeGenerator = new ShapeGenerator(shapeObject);
         this.calculationGenerator = new CalculationGenerator(operatorObject);
+        this.arrowsGenerator = new ArrowsGenerator(arrowsObject);
     }
     start(shapeToCount) {
-        stopScheduler = false;
+        gStopScheduler = false;
 
         this.numberGenerator.resetResult();
         this.shapeGenerator.resetShapeToCount();
@@ -22,31 +24,36 @@ class Scheduler {
 
         this.manageNumberGenerator();
         this.manageShapeGenerator();
+        this.manageArrowsGenerator();
 
         this.startPeriodicNumberGenerator(jsonSettings.numbersSequenceSettings.period, jsonSettings.numbersSequenceSettings.numberOfApparition-1, this);
         this.startPeriodicShapeGenerator(jsonSettings.shapesSettings.period, jsonSettings.shapesSettings.numberOfApparition-1, this);
+        
+        const minArrowsPeriod = parseInt(jsonSettings.arrowsSettings.minPeriod);
+        const maxArrowsPeriod = parseInt(jsonSettings.arrowsSettings.maxPeriod);
+        this.startPeriodicArrowsGenerator(minArrowsPeriod, maxArrowsPeriod, this);
 
-        const minCalculationPeriod = jsonSettings.calculationSettings.minPeriod;
-        const maxCalculationPeriod = jsonSettings.calculationSettings.maxPeriod;
+        const minCalculationPeriod = parseInt(jsonSettings.calculationSettings.minPeriod);
+        const maxCalculationPeriod = parseInt(jsonSettings.calculationSettings.maxPeriod);
 
         const calculationPeriod = Math.floor((Math.random() * maxCalculationPeriod - minCalculationPeriod + 1) + minCalculationPeriod);
         //console.log("Random period for calculation display:" + calculationPeriod);
 
         this.startPeriodicCalculationGenerator(calculationPeriod, jsonSettings.calculationSettings.numberOfApparition, this);
 
+
         setTimeout(function(){
             openFinish(shapeToCount);
         }, jsonSettings.gameDuration);
     }
     stop() {
-        stopScheduler = true;
         resetPage();
 
         clearAllTimeouts();
     }
 
     startPeriodicNumberGenerator(period, numberOfExecutions, scheduler) {
-        if ( !stopScheduler ) {
+        if ( !gStopScheduler ) {
             setTimeout(function(){
 
                 numberOfExecutions--;
@@ -64,7 +71,7 @@ class Scheduler {
     }
 
     startPeriodicShapeGenerator(period, numberOfExecutions, scheduler) {
-        if ( !stopScheduler ) {
+        if ( !gStopScheduler ) {
             setTimeout(function(){
 
                 numberOfExecutions--;
@@ -81,8 +88,22 @@ class Scheduler {
         }
     }
 
+    startPeriodicArrowsGenerator(minPeriod, maxPeriod, scheduler) {
+        let  calculationPeriod = Math.floor(Math.random() * (maxPeriod - minPeriod + 1)) + minPeriod;
+        calculationPeriod *= 1000;
+        console.log("random period: " + calculationPeriod);
+        console.log("stop scheduler: " + gStopScheduler);
+        if ( gStopScheduler == false ) {
+            setTimeout(function(){
+                    scheduler.manageArrowsGenerator();
+
+                    scheduler.startPeriodicArrowsGenerator(minPeriod, maxPeriod, scheduler);
+            }, calculationPeriod);
+        }
+    }
+
     startPeriodicCalculationGenerator(period, numberOfExecutions, scheduler) {
-        if ( !stopScheduler ) {
+        if ( !gStopScheduler ) {
             setTimeout(function(){
 
                 numberOfExecutions--;
@@ -110,7 +131,7 @@ class Scheduler {
     }
 
     manageNumberGenerator() {
-        if ( !stopScheduler ) {
+        if ( !gStopScheduler ) {
             const newNumber = this.numberGenerator.generateNumber();
             //console.log(newNumber);
 
@@ -119,7 +140,7 @@ class Scheduler {
     }
 
     manageShapeGenerator() {
-        if ( !stopScheduler ) {
+        if ( !gStopScheduler ) {
             const newShape = this.shapeGenerator.generateShape();
             //console.log(newShape);
 
@@ -128,11 +149,18 @@ class Scheduler {
     }
 
     manageCalculationGenerator() {
-        if ( !stopScheduler ) {
+        if ( !gStopScheduler ) {
             const newCalculation = this.calculationGenerator.generateCalculation();
             //console.log(newCalculation);
 
             displayOperation(newCalculation.operatorKey, newCalculation.member1, newCalculation.member2);
+        }
+    }
+
+    manageArrowsGenerator() {
+        if (!gStopScheduler){
+            const newArrows = this.arrowsGenerator.generateArrows();
+            displayArrowState(newArrows, "warning");
         }
     }
 

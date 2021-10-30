@@ -12,7 +12,7 @@ function openModalSettings(){
     //Load all field with current jsonSettings
     //Global settings
     $("#inSettingsGlobalGameDuration").val(jsonSettings.gameDuration/1000);
-    $("#inSettingsGlobalEnableSound").prop("checked", jsonSettings.enableAudio);
+    $("#inSettingsGlobalEnableSound").prop("checked", jsonSettings.enableSound);
 
     //Shapes settings
     $("#inSettingsShapesPeriod").val(jsonSettings.shapesSettings.period/1000);
@@ -59,6 +59,9 @@ function openModalSettings(){
 
     //arrow settings
     $("#inSettingsArrowsMinPercentSuccess").val(jsonSettings.arrowsSettings.minPercentToSuccess);
+    $("#inSettingsArrowsMinPeriod").val(jsonSettings.arrowsSettings.minPeriod);
+    $("#inSettingsArrowsMaxPeriod").val(jsonSettings.arrowsSettings.maxPeriod);
+    $("#inSettingsArrowsNbSimultaneous").val(jsonSettings.arrowsSettings.nbSimultaneousPresses);
 
     $("#modalSettings").modal('show');
 }
@@ -84,7 +87,7 @@ function saveSettings(){
     //assign all inputs to global settings var
     //Global settings
     jsonSettings.gameDuration = $("#inSettingsGlobalGameDuration").val() * 1000;
-    jsonSettings.enableAudio = $("#inSettingsGlobalEnableSound").prop("checked");
+    jsonSettings.enableSound = $("#inSettingsGlobalEnableSound").prop("checked");
 
     //Shapes settings
     jsonSettings.shapesSettings.period = $("#inSettingsShapesPeriod").val() * 1000;
@@ -131,6 +134,9 @@ function saveSettings(){
 
     //arrow settings
     jsonSettings.arrowsSettings.minPercentToSuccess = $("#inSettingsArrowsMinPercentSuccess").val();
+    jsonSettings.arrowsSettings.minPeriod = $("#inSettingsArrowsMinPeriod").val();
+    jsonSettings.arrowsSettings.maxPeriod = $("#inSettingsArrowsMaxPeriod").val();
+    jsonSettings.arrowsSettings.nbSimultaneousPresses = $("#inSettingsArrowsNbSimultaneous").val();
 
     //store new global settings in localStorage
     localStorage.setItem("jsonSettings", JSON.stringify(jsonSettings));
