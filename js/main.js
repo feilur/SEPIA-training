@@ -1,9 +1,10 @@
 var compteur = 0;
 
 var gStopScheduler;
-
 var nbArrowsSuccess;
 var nbTotalArrows;
+
+var audioGame = new Audio("audio/gameSound.mp3");
 
 $(document).ready(function() {
     fGetStoredSettings();

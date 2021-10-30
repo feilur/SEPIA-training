@@ -16,6 +16,11 @@ class Scheduler {
         this.arrowsGenerator = new ArrowsGenerator(arrowsObject);
     }
     start(shapeToCount) {
+
+        if(jsonSettings.enableSound){
+            audioGame.play();
+        }
+        
         gStopScheduler = false;
         nbTotalArrows = 0;
         nbArrowsSuccess = 0;

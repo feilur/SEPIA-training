@@ -102,8 +102,8 @@ function disableStartButton(){
 }
 
 function enableSettingsButton(){
-    $("#btnStart").prop('disabled', false);
-    $("#btnStart").removeClass('disabled');
+    $("#btnSettings").prop('disabled', false);
+    $("#btnSettings").removeClass('disabled');
 }
 
 function disableSettingsButton(){
@@ -116,6 +116,10 @@ function disableSettingsButton(){
  */
 function resetPage(){
     gStopScheduler = true;
+
+    //Reset audio
+    audioGame.pause();
+    audioGame.currentTime = 0;
     
     //Shape replaced with question mark
     $("#shapeHide").show();
