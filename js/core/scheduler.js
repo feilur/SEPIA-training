@@ -169,7 +169,6 @@ class Scheduler {
             displayArrowState(newArrows, "warning");
 
             nbTotalArrows +=1;
-            console.log(nbTotalArrows);
         }
     }
 

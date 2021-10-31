@@ -9,9 +9,8 @@ var audioGame = new Audio("audio/gameSound.mp3");
 $(document).ready(function() {
     fGetStoredSettings();
     resetPage();
-
-    let scheduler = new Scheduler();
-
+    
+    var scheduler = new Scheduler();
 
     //Button start
     $("#btnStart").on('click', function(){
@@ -25,7 +24,6 @@ $(document).ready(function() {
 
         $("#modalSelectionShape").modal('hide');
 
-        //Ajouter fonction au clic sur Start
         scheduler.start(scheduler.shapeGenerator.shapeToCount);
     });
 
@@ -45,7 +43,7 @@ $(document).ready(function() {
         $("#inNbShapes, #inNumberSequence").removeClass('is-invalid');
         $("#modalFinish").modal('hide');
         
-let arrowsPercentSuccess = Math.floor((nbArrowsSuccess / nbTotalArrows) * 100);
+        let arrowsPercentSuccess = Math.floor((nbArrowsSuccess / nbTotalArrows) * 100);
 
         openResults(scheduler.shapeGenerator.result, scheduler.numberGenerator.result, scheduler.calculationGenerator.result, arrowsPercentSuccess);
     });
@@ -72,7 +70,6 @@ function keyPressEvent(direction){
     if($("#arrow" + direction + ".text-warning").length == 1){
         displayArrowState(direction, "success");
         nbArrowsSuccess+=1;
-        console.log("success: " + nbArrowsSuccess);
     }else{
         //if there are other warning arrows, they become red
         $(".arrowSelect.text-warning").addClass("text-danger");

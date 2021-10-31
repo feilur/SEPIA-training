@@ -39,6 +39,7 @@
         const randomIndex = Math.floor(Math.random() * maxIndex);
         
         this.shapeToCount = shapeArray[randomIndex];
+        console.log("shapeToCount: " + this.shapeToCount);
     }
 
     resetResult() {
@@ -63,6 +64,7 @@
 
         if (this.generatedShape == this.shapeToCount) {
             this.result++;
+            console.log(this.result);
         }
 
         return this.generatedShape;
