@@ -21,7 +21,7 @@ class NumberGenerator {
         this.generatedNumber = -1;
         this.lastgeneratedNumber = -1;
 
-        this.resetResult();
+        //this.resetResult();
     }
 
     /**
