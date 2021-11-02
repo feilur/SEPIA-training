@@ -26,7 +26,7 @@ class Scheduler {
         nbArrowsSuccess = 0;
 
         this.numberGenerator.resetResult();
-        this.shapeGenerator.resetShapeToCount();
+        //this.shapeGenerator.resetShapeToCount();
         this.shapeGenerator.resetResult();
 
         this.manageNumberGenerator();
