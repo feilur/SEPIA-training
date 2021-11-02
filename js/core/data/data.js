@@ -2,9 +2,9 @@
  * @brief Contains shapes to generate
  */
 const shapeObject = {
-    triangle:   '<i class="fas fa-5x fa-play" style="transform: rotateZ(270deg);"></i>',
-    square:     '<i class="fas fa-5x fa-square"></i>',
-    circle:     '<i class="fas fa-5x fa-circle"></i>'
+    triangle:   '<i class="fas fa-shape-responsive fa-play" style="transform: rotateZ(270deg);"></i>',
+    square:     '<i class="fas fa-shape-responsive fa-square"></i>',
+    circle:     '<i class="fas fa-shape-responsive fa-circle"></i>'
 };
 
 /**

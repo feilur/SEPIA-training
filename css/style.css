@@ -30,16 +30,43 @@
     .fa-responsive{
         font-size: 2em;
     }
+
+    .fa-shape-responsive{
+        font-size: 3em;
+    }
+
+    .col-responsive-mainBtn{
+        flex: 0 0 auto;
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 576px) and (max-width: 767px) { /* sm */
     .fa-responsive{
         font-size: 3em;
     }
+
+    .fa-shape-responsive{
+        font-size: 4em;
+    }
+
+    .col-responsive-mainBtn{
+        flex: 0 0 auto;
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 768px) { /* md - lg - xl... */
     .fa-responsive{
         font-size: 4em;
+    }
+
+    .fa-shape-responsive{
+        font-size: 5em;
+    }
+
+    .col-responsive-mainBtn{
+        flex: 0 0 auto;
+        width: 47%;
     }
 }
