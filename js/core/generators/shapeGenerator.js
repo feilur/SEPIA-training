@@ -19,10 +19,10 @@
         this.generatedShape = -1;
         this.lastgeneratedShape = -1;    
         
-        //this.resetShapeToCount();
+        this.resetShapeToCount();
         //console.log("Shape to count: " + this.shapeToCount);
 
-        //this.resetResult();
+        this.resetResult();
     }
 
     /**
