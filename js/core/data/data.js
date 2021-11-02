@@ -36,48 +36,48 @@ var jsonSettings = {
         plusOperation:{
             member1:{
                 min: 10,
-                max: 999
+                max: 99
             },
             member2:{
                 min: 10,
-                max: 999
+                max: 99
             }
         },
         minusOperation:{
             member1:{
                 min: 10,
-                max: 999
+                max: 99
             },
             member2:{
                 min: 10,
-                max: 999
+                max: 99
             }
         },
         divideOperation:{
             member1:{   // Not the member 1 but the quotient of the dividing operation: member2 / X = quotient(member1 here)
                 min: 3,
-                max: 10
+                max: 9
             },
             member2:{
-                min: 10,
-                max: 999
+                min: 3,
+                max: 9
             }
         },
         multiplicateOperation:{
             member1:{
-                min: 10,
-                max: 999
+                min: 12,
+                max: 99
             },
             member2:{
-                min: 10,
-                max: 999
+                min: 3,
+                max: 11
             }
         },
         minPeriod: 10000,
         maxPeriod: 35000,
         numberOfApparition: 1,
-        apparitionTime: 5000,
-        inputTime: 10000
+        apparitionTime: 12000,
+        inputTime: 12000
     },
     numbersSequenceSettings:{
         minNumber: 1,

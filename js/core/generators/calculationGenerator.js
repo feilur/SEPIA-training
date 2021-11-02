@@ -78,7 +78,7 @@
                 return -1; // Error
         }
 
-        const member2 = Math.floor((Math.random() * this.maxValueMember2 - this.minValueMember2 + 1) + this.minValueMember2);
+        const member2 = Math.floor((Math.random() * (this.maxValueMember2 - this.minValueMember2 + 1)) + this.minValueMember2);
 
         let member1;
 
@@ -86,12 +86,12 @@
             const minQuotient = parseInt(jsonSettings.calculationSettings.divideOperation.member1.min);
             const maxQuotient = parseInt(jsonSettings.calculationSettings.divideOperation.member1.max);
 
-            const quotient = Math.floor((Math.random() * maxQuotient - minQuotient + 1) + minQuotient);
+            const quotient = Math.floor((Math.random() * (maxQuotient - minQuotient + 1)) + minQuotient);
 
             member1 = quotient * member2;
         }
         else {
-            member1 = Math.floor((Math.random() * this.maxValueMember1 - this.minValueMember1 + 1) + this.minValueMember1);
+            member1 = Math.floor((Math.random() * (this.maxValueMember1 - this.minValueMember1 + 1)) + this.minValueMember1);
         }
 
         this.generatedCalculation = new Calculation(operatorKey, member1, member2);

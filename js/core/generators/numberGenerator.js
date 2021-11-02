@@ -33,7 +33,7 @@ class NumberGenerator {
         this.lastgeneratedNumber = this.generatedNumber;
 
         while (this.generatedNumber == this.lastgeneratedNumber && this.maxNumber != this.minNumber) {
-            this.generatedNumber = Math.floor((Math.random() * this.maxNumber - this.minNumber + 1) + this.minNumber);
+            this.generatedNumber = Math.floor((Math.random() * (this.maxNumber - this.minNumber + 1)) + this.minNumber);
         }
 
         this.result += this.generatedNumber;
