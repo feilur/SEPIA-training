@@ -14,7 +14,9 @@ $(document).ready(function() {
 
     //Button start
     $("#btnStart").on('click', function(){
-        displayModalStartTraining(scheduler.shapeGenerator.shapeToCount);
+      scheduler.shapeGenerator.resetShapeToCount();
+
+      displayModalStartTraining(scheduler.shapeGenerator.shapeToCount);
     });
 
     //Button start training (after shape discover)
