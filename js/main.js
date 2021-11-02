@@ -66,19 +66,19 @@ $(document).ready(function() {
       });
 
       //Arrows touch event (mobile version)
-      $("#arrowUp").on("touch", function(){
+      $("#arrowUp").on("click", function(){
         keyPressEvent("Up");
       });
 
-      $("#arrowRight").on("touch", function(){
+      $("#arrowRight").on("click", function(){
         keyPressEvent("Right");
       });
 
-      $("#arrowDown").on("touch", function(){
+      $("#arrowDown").on("click", function(){
         keyPressEvent("Down");
       });
 
-      $("#arrowLeft").on("touch", function(){
+      $("#arrowLeft").on("click", function(){
         keyPressEvent("Left");
       });
 });
