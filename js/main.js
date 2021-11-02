@@ -64,6 +64,23 @@ $(document).ready(function() {
       keyboardJS.bind('left', (e) => {
         keyPressEvent("Left");
       });
+
+      //Arrows touch event (mobile version)
+      $("#arrowUp").on("touch", function(){
+        keyPressEvent("Up");
+      });
+
+      $("#arrowRight").on("touch", function(){
+        keyPressEvent("Right");
+      });
+
+      $("#arrowDown").on("touch", function(){
+        keyPressEvent("Down");
+      });
+
+      $("#arrowLeft").on("touch", function(){
+        keyPressEvent("Left");
+      });
 });
 
 function keyPressEvent(direction){

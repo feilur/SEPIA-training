@@ -60,7 +60,15 @@ function fGetStoredSettings(){
         //if null, init local storage with default value
         localStorage.setItem('jsonSettings', JSON.stringify(jsonSettings));
     }else{
-        //if not null replace default settings
-        jsonSettings = JSON.parse(localStorage.getItem("jsonSettings"));
+        let jsonSettingsLocalStorage = JSON.parse(localStorage.getItem("jsonSettings"));
+        
+        if (jsonSettingsLocalStorage.version == undefined || jsonSettingsLocalStorage.version != jsonSettings.version){
+            //if localStorage settings is not uptodate replace localStorage with default settings
+            localStorage.setItem('jsonSettings', JSON.stringify(jsonSettings));
+            fShowNotification("warning", "custom settings has been replaced with default value due to major settings update");
+        }else{
+            //if not null and version is up to date replace default jsonSettings
+            jsonSettings = jsonSettingsLocalStorage;
+        }
     }
 }
