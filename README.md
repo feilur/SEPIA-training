@@ -1,5 +1,6 @@
 # TODO
 
+- [ ] Display the instructions on button start clicked (with shape to count)
 - [x] To handle keyboard event: https://github.com/RobertWHurst/KeyboardJS/releases/tag/v2.6.2
 - [X] Manage sound - exemple:
     var testAudio = new Audio("audio/gameSound.mp3");
