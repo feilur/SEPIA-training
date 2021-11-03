@@ -9,3 +9,4 @@
 - [ ] Compute numberOfApparition parameters according to period parameters
 - [X] Improve mobile version
 - [ ] Add a scoring method
+- [ ] Count number of errors for sequence number
