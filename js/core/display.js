@@ -207,7 +207,7 @@ function openResults(nbShapeAnswer, sequenceNumbersAnswer, operationAnswer, user
     if(userArrowPercentSuccess >= parseInt(jsonSettings.arrowsSettings.minPercentToSuccess)){
         fSetValidInput("inArrowResult", "");
     }else{
-        fSetInvalidInput("inArrowResult", "score is too low");
+        fSetInvalidInput("inArrowResult", "Score is too low");
     }
 
     //Enable start button
