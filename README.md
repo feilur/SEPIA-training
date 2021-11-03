@@ -8,3 +8,4 @@
 - [ ] Add stats in home page (save score each time in local storage)
 - [ ] Compute numberOfApparition parameters according to period parameters
 - [X] Improve mobile version
+- Add a scoring method
