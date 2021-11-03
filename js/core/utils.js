@@ -65,7 +65,7 @@ function fGetStoredSettings(){
         if (jsonSettingsLocalStorage.version == undefined || jsonSettingsLocalStorage.version != jsonSettings.version){
             //if localStorage settings is not uptodate replace localStorage with default settings
             localStorage.setItem('jsonSettings', JSON.stringify(jsonSettings));
-            fShowNotification("warning", "custom settings has been replaced with default value due to major settings update");
+            fShowNotification("warning", "Custom settings have been replaced by default values due to major settings update");
         }else{
             //if not null and version is up to date replace default jsonSettings
             jsonSettings = jsonSettingsLocalStorage;
