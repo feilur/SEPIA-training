@@ -39,7 +39,7 @@ class NumberGenerator {
         this.result += this.generatedNumber;
 
         //console.log("Result for numbers: " + this.result);
-
+        console.log(this.generatedNumber);
         return this.generatedNumber;
     }
 

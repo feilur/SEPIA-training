@@ -86,57 +86,57 @@ function saveSettings(){
 
     //assign all inputs to global settings var
     //Global settings
-    jsonSettings.gameDuration = $("#inSettingsGlobalGameDuration").val() * 1000;
+    jsonSettings.gameDuration = parseInt($("#inSettingsGlobalGameDuration").val()) * 1000;
     jsonSettings.enableSound = $("#inSettingsGlobalEnableSound").prop("checked");
 
     //Shapes settings
-    jsonSettings.shapesSettings.period = $("#inSettingsShapesPeriod").val() * 1000;
-    jsonSettings.shapesSettings.numberOfApparition = $("#inSettingsShapesNbApparition").val();
+    jsonSettings.shapesSettings.period = parseInt($("#inSettingsShapesPeriod").val()) * 1000;
+    jsonSettings.shapesSettings.numberOfApparition = parseInt($("#inSettingsShapesNbApparition").val());
 
     //calculation settings
     //Global
-    jsonSettings.calculationSettings.minPeriod = $("#inSettingsCalculationMinPeriod").val() * 1000;
-    jsonSettings.calculationSettings.maxPeriod = $("#inSettingsCalculationMaxPeriod").val() * 1000;
-    jsonSettings.calculationSettings.numberOfApparition = $("#inSettingsCalculationNumberOfApparition").val();
-    jsonSettings.calculationSettings.apparitionTime = $("#inSettingsCalculationApparitionTime").val() * 1000;
-    jsonSettings.calculationSettings.inputTime = $("#inSettingsCalculationInputTime").val() * 1000;
+    jsonSettings.calculationSettings.minPeriod = parseInt($("#inSettingsCalculationMinPeriod").val()) * 1000;
+    jsonSettings.calculationSettings.maxPeriod = parseInt($("#inSettingsCalculationMaxPeriod").val()) * 1000;
+    jsonSettings.calculationSettings.numberOfApparition = parseInt($("#inSettingsCalculationNumberOfApparition").val());
+    jsonSettings.calculationSettings.apparitionTime = parseInt($("#inSettingsCalculationApparitionTime").val()) * 1000;
+    jsonSettings.calculationSettings.inputTime = parseInt($("#inSettingsCalculationInputTime").val()) * 1000;
 
     //Plus operator
-    jsonSettings.calculationSettings.plusOperation.member1.min = $("#inSettingsCalculationPlusM1Min").val();
-    jsonSettings.calculationSettings.plusOperation.member1.max = $("#inSettingsCalculationPlusM1Max").val();
-    jsonSettings.calculationSettings.plusOperation.member2.min = $("#inSettingsCalculationPlusM2Min").val();
-    jsonSettings.calculationSettings.plusOperation.member2.max = $("#inSettingsCalculationPlusM2Max").val();
+    jsonSettings.calculationSettings.plusOperation.member1.min = parseInt($("#inSettingsCalculationPlusM1Min").val());
+    jsonSettings.calculationSettings.plusOperation.member1.max = parseInt($("#inSettingsCalculationPlusM1Max").val());
+    jsonSettings.calculationSettings.plusOperation.member2.min = parseInt($("#inSettingsCalculationPlusM2Min").val());
+    jsonSettings.calculationSettings.plusOperation.member2.max = parseInt($("#inSettingsCalculationPlusM2Max").val());
 
     //Minus operator
-    jsonSettings.calculationSettings.minusOperation.member1.min = $("#inSettingsCalculationMinusM1Min").val();
-    jsonSettings.calculationSettings.minusOperation.member1.max = $("#inSettingsCalculationMinusM1Max").val();
-    jsonSettings.calculationSettings.minusOperation.member2.min = $("#inSettingsCalculationMinusM2Min").val();
-    jsonSettings.calculationSettings.minusOperation.member2.max = $("#inSettingsCalculationMinusM2Max").val();
+    jsonSettings.calculationSettings.minusOperation.member1.min = parseInt($("#inSettingsCalculationMinusM1Min").val());
+    jsonSettings.calculationSettings.minusOperation.member1.max = parseInt($("#inSettingsCalculationMinusM1Max").val());
+    jsonSettings.calculationSettings.minusOperation.member2.min = parseInt($("#inSettingsCalculationMinusM2Min").val());
+    jsonSettings.calculationSettings.minusOperation.member2.max = parseInt($("#inSettingsCalculationMinusM2Max").val());
 
     //Divide operator
-    jsonSettings.calculationSettings.divideOperation.member1.min = $("#inSettingsCalculationDivideM1Min").val();
-    jsonSettings.calculationSettings.divideOperation.member1.max = $("#inSettingsCalculationDivideM1Max").val();
-    jsonSettings.calculationSettings.divideOperation.member2.min = $("#inSettingsCalculationDivideM2Min").val();
-    jsonSettings.calculationSettings.divideOperation.member2.max = $("#inSettingsCalculationDivideM2Max").val();
+    jsonSettings.calculationSettings.divideOperation.member1.min = parseInt($("#inSettingsCalculationDivideM1Min").val());
+    jsonSettings.calculationSettings.divideOperation.member1.max = parseInt($("#inSettingsCalculationDivideM1Max").val());
+    jsonSettings.calculationSettings.divideOperation.member2.min = parseInt($("#inSettingsCalculationDivideM2Min").val());
+    jsonSettings.calculationSettings.divideOperation.member2.max = parseInt($("#inSettingsCalculationDivideM2Max").val());
 
     //Multiplicate operator
-    jsonSettings.calculationSettings.multiplicateOperation.member1.min = $("#inSettingsCalculationMultiplicateM1Min").val();
-    jsonSettings.calculationSettings.multiplicateOperation.member1.max = $("#inSettingsCalculationMultiplicateM1Max").val();
-    jsonSettings.calculationSettings.multiplicateOperation.member2.min = $("#inSettingsCalculationMultiplicateM2Min").val();
-    jsonSettings.calculationSettings.multiplicateOperation.member2.max = $("#inSettingsCalculationMultiplicateM2Max").val();
+    jsonSettings.calculationSettings.multiplicateOperation.member1.min = parseInt($("#inSettingsCalculationMultiplicateM1Min").val());
+    jsonSettings.calculationSettings.multiplicateOperation.member1.max = parseInt($("#inSettingsCalculationMultiplicateM1Max").val());
+    jsonSettings.calculationSettings.multiplicateOperation.member2.min = parseInt($("#inSettingsCalculationMultiplicateM2Min").val());
+    jsonSettings.calculationSettings.multiplicateOperation.member2.max = parseInt($("#inSettingsCalculationMultiplicateM2Max").val());
     //end calculation settings
 
     //numbers sequence settings
-    jsonSettings.numbersSequenceSettings.minNumber = $("#inSettingsNumbersSequenceMinNumber").val();
-    jsonSettings.numbersSequenceSettings.maxNumber = $("#inSettingsNumbersSequenceMaxNumber").val();
-    jsonSettings.numbersSequenceSettings.period = $("#inSettingsNumbersSequencePeriod").val() * 1000;
-    jsonSettings.numbersSequenceSettings.numberOfApparition = $("#inSettingsNumbersSequenceNumberOfApparition").val();
+    jsonSettings.numbersSequenceSettings.minNumber = parseInt($("#inSettingsNumbersSequenceMinNumber").val());
+    jsonSettings.numbersSequenceSettings.maxNumber = parseInt($("#inSettingsNumbersSequenceMaxNumber").val());
+    jsonSettings.numbersSequenceSettings.period = parseInt($("#inSettingsNumbersSequencePeriod").val()) * 1000;
+    jsonSettings.numbersSequenceSettings.numberOfApparition = parseInt($("#inSettingsNumbersSequenceNumberOfApparition").val());
 
     //arrow settings
-    jsonSettings.arrowsSettings.minPercentToSuccess = $("#inSettingsArrowsMinPercentSuccess").val();
-    jsonSettings.arrowsSettings.minPeriod = $("#inSettingsArrowsMinPeriod").val();
-    jsonSettings.arrowsSettings.maxPeriod = $("#inSettingsArrowsMaxPeriod").val();
-    jsonSettings.arrowsSettings.nbSimultaneousPresses = $("#inSettingsArrowsNbSimultaneous").val();
+    jsonSettings.arrowsSettings.minPercentToSuccess = parseInt($("#inSettingsArrowsMinPercentSuccess").val());
+    jsonSettings.arrowsSettings.minPeriod = parseInt($("#inSettingsArrowsMinPeriod").val());
+    jsonSettings.arrowsSettings.maxPeriod = parseInt($("#inSettingsArrowsMaxPeriod").val());
+    jsonSettings.arrowsSettings.nbSimultaneousPresses = parseInt($("#inSettingsArrowsNbSimultaneous").val());
 
     //store new global settings in localStorage
     localStorage.setItem("jsonSettings", JSON.stringify(jsonSettings));
