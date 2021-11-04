@@ -25,7 +25,7 @@ const arrowsObject = [
 ]
 
 var jsonSettings = {
-    version: 1, //Increment version (integer only) ONLY if needed (adding attribute or major settings update)
+    version: 2, //Increment version (integer only) ONLY if needed (adding attribute or major settings update)
     gameDuration: 50000,
     enableSound: true,
     shapesSettings: {
